@@ -47,6 +47,13 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-primary-dark via-primary to-secondary p-6 animate-fade-in">
       <div className="max-w-7xl mx-auto space-y-8">
         <div className="text-center space-y-4">
+          <div className="flex items-center justify-center mb-6">
+            <img 
+              src="/cmac-logo.png" 
+              alt="CMAC Roofing" 
+              className="h-16 md:h-20 object-contain filter brightness-0 invert"
+            />
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white">
             Welcome to CMAC's Resource Center
           </h1>
