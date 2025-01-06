@@ -7,7 +7,7 @@ export const Ticker = () => {
   useEffect(() => {
     const animation = setInterval(() => {
       setPosition((prev) => (prev - 1) % (window.innerWidth * 2));
-    }, 20);
+    }, 50);
 
     return () => clearInterval(animation);
   }, []);
