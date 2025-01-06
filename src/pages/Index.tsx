@@ -35,7 +35,7 @@ const resources = [
     link: "#",
   },
   {
-    title: "IT Support",
+    title: "Meet The Builders",
     description: "Get help with technical issues",
     icon: HelpCircle,
     link: "#",
