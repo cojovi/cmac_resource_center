@@ -1,6 +1,7 @@
 import { Book, Calendar, FileText, HelpCircle, Users } from "lucide-react";
 import { ResourceCard } from "@/components/ResourceCard";
 import { QuickLinks } from "@/components/QuickLinks";
+import { Ticker } from "@/components/Ticker";
 
 const resources = [
   {
@@ -53,6 +54,8 @@ const Index = () => {
             Your one-stop hub for all company resources and information
           </p>
         </div>
+
+        <Ticker />
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
           <div className="md:col-span-2 lg:col-span-3">
