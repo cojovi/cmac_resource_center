@@ -1,17 +1,6 @@
-import { useEffect, useState } from "react";
 import { tickerItems } from "@/ticker/tickerContent";
 
 export const Ticker = () => {
-  const [position, setPosition] = useState(0);
-
-  useEffect(() => {
-    const animation = setInterval(() => {
-      setPosition((prev) => (prev - 1) % (window.innerWidth * 2));
-    }, 50);
-
-    return () => clearInterval(animation);
-  }, []);
-
   const getTypeColor = (type: string) => {
     switch (type) {
       case "info":
@@ -29,12 +18,7 @@ export const Ticker = () => {
 
   return (
     <div className="w-full bg-primary-dark/80 backdrop-blur-sm border-y border-primary/20 overflow-hidden py-2">
-      <div
-        className="whitespace-nowrap inline-block animate-ticker"
-        style={{
-          transform: `translateX(${position}px)`,
-        }}
-      >
+      <div className="whitespace-nowrap inline-block animate-ticker">
         {[...tickerItems, ...tickerItems].map((item, index) => (
           <span
             key={`${item.id}-${index}`}
