@@ -1,6 +1,6 @@
 import { Book, Calendar, FileText, HelpCircle, Users } from "lucide-react";
 import { ResourceCard } from "@/components/ResourceCard";
-import { QuickLinks } from "@/components/QuickLinks";
+import { UpcomingMeetings } from "@/components/UpcomingMeetings";
 import { Ticker } from "@/components/Ticker";
 
 const resources = [
@@ -66,7 +66,7 @@ const Index = () => {
             </div>
           </div>
           <div className="md:col-span-1">
-            <QuickLinks />
+            <UpcomingMeetings />
           </div>
         </div>
       </div>
