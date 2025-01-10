@@ -15,7 +15,7 @@ const resources = [
     title: "CMAC Processes",
     description: "Step-by-step guides for company processes",
     icon: FileText,
-    link: "./cmac-processes",
+    link: "/cmac-processes",
   },
   {
     title: "Team Directory",
