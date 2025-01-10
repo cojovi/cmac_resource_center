@@ -33,7 +33,7 @@ const resources = [
     title: "Company Calendar",
     description: "Stay updated with important dates and events",
     icon: Calendar,
-    link: "./company-calendar",
+    link: "https://cmac-resource-center.vercel.app/company-calendar",
   },
   {
     title: "Meet The Builders",
