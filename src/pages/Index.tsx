@@ -14,7 +14,7 @@ const resources = [
     title: "CMAC Processes",
     description: "Step-by-step guides for company processes",
     icon: FileText,
-    link: "https://texastrustedroofing.com/process_procedure_combined.pdf",
+    link: "/cmac-processes",
   },
   {
     title: "Team Directory",
