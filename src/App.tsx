@@ -11,11 +11,14 @@ import CompanyCalendar from "./pages/CompanyCalendar";
 
 const queryClient = new QueryClient();
 
+// Use "/" as the basename in development, and the actual BASE_URL in production
+const basename = import.meta.env.DEV ? "/" : import.meta.env.BASE_URL || "/";
+
 export default () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
-      <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <BrowserRouter basename={basename}>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/cmac-processes" element={<CmacProcesses />} />
