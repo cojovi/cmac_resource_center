@@ -6,13 +6,13 @@ const safetyResources = [
     title: "CMAC Commercial Safety Manual",
     description: "Comprehensive safety guidelines for commercial operations",
     icon: Book,
-    link: "#",
+    link: "https://docs.google.com/document/d/1pJMUqzJzMxzYg5glx_R8FALlYG0FCg1W/edit?usp=sharing&ouid=115079516805674909565&rtpof=true&sd=true",
   },
   {
     title: "OCHA Rules and Regs",
     description: "Official OCHA safety regulations and requirements",
     icon: FileText,
-    link: "#",
+    link: "https://drive.google.com/file/d/1BzSi1iV_YfJ-UUnvZQIzwoLcAh9ZAv0_/view?usp=sharing",
   },
   {
     title: "CMAC Safety Protocols",
