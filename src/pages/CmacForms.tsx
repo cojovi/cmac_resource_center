@@ -3,10 +3,52 @@ import { ResourceCard } from "@/components/ResourceCard";
 
 const formResources = [
   {
-    title: "CMAC Forms",
-    description: "Coming soon - Access to all CMAC forms",
+    title: "Material Shorts Form",
+    description: "Request material shorts for your project",
     icon: FileText,
-    link: "#",
+    link: "https://forms.gle/QuXcJPL1ggWnEpas8",
+  },
+  {
+    title: "Backcharge Request Form",
+    description: "Submit a backcharge request for project costs",
+    icon: FileText,
+    link: "https://forms.gle/LPGqtdh5pCkNm1JM8",
+  },
+  {
+    title: "IT Request Form",
+    description: "Submit your IT support or equipment requests",
+    icon: FileText,
+    link: "https://forms.google.com/it-request",
+  },
+  {
+    title: "Builder Detail Form",
+    description: "Provide details for builder-related information",
+    icon: FileText,
+    link: "https://forms.gle/7UcKHLzmHvRaKMAR9",
+  },
+  {
+    title: "Austin Field Update Form",
+    description: "Update field status and progress in Austin projects",
+    icon: FileText,
+    link: "https://forms.gle/1EmxpE1xC1xdytNp8",
+  },
+  {
+    title: "Austin Community Outlook Form",
+    description: "Share insights and outlook for Austin community projects",
+    icon: FileText,
+    link: "https://forms.gle/euZycmUFH9HgwEeK6",
+  },
+  {
+    title: "New Email Request Form",
+    description: "Request a new company email account",
+    icon: FileText,
+    link: "https://forms.gle/48X1YiQBSiEoj4MF6",
+  },
+  {
+    title: "Time Off Request",
+    description: "Submit your time off requests",
+    icon: FileText,
+    link: "https://forms.google.com/timeoff",
   },
 ];
 
