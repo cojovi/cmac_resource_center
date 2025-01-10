@@ -34,7 +34,7 @@ export const SearchBar = () => {
       const data = await response.json();
       
       toast({
-        title: "AI Response",
+        title: "AmayAI Says:",
         description: data.choices?.[0]?.message?.content || "No response from AI",
         duration: 10000,
       });
