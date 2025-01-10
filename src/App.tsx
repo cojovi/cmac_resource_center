@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import CmacProcesses from "./pages/CmacProcesses";
 import CmacSafety from "./pages/CmacSafety";
@@ -11,14 +11,11 @@ import CompanyCalendar from "./pages/CompanyCalendar";
 
 const queryClient = new QueryClient();
 
-// Use "/" as the basename in development, and the actual BASE_URL in production
-const basename = import.meta.env.DEV ? "/" : import.meta.env.BASE_URL || "/";
-
 export default () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
-      <BrowserRouter basename={basename}>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/cmac-processes" element={<CmacProcesses />} />
@@ -27,7 +24,7 @@ export default () => (
           <Route path="/cmac-forms" element={<CmacForms />} />
           <Route path="/company-calendar" element={<CompanyCalendar />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
