@@ -1,4 +1,4 @@
-import { Book, Calendar, FileText, HelpCircle, Users } from "lucide-react";
+import { Book, Calendar, FileText, HelpCircle, Users, Shield } from "lucide-react";
 import { ResourceCard } from "@/components/ResourceCard";
 import { UpcomingMeetings } from "@/components/UpcomingMeetings";
 import { Ticker } from "@/components/Ticker";
@@ -39,6 +39,12 @@ const resources = [
     description: "Get help with technical issues",
     icon: HelpCircle,
     link: "#",
+  },
+  {
+    title: "CMAC Safety",
+    description: "Safety manuals, protocols, and regulations",
+    icon: Shield,
+    link: "/cmac-safety",
   },
 ];
 
