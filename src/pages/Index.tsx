@@ -21,19 +21,19 @@ const resources = [
     title: "Team Directory",
     description: "Connect with your colleagues",
     icon: Users,
-    link: "https://cmac-resource-center-ogui9cvg1-cojovis-projects.vercel.app/team-directory",
+    link: "./team-directory",
   },
   {
     title: "CMAC Forms",
     description: "Custom forms created to streamline your work",
     icon: FileText,
-    link: "https://cmac-resource-center-ogui9cvg1-cojovis-projects.vercel.app/cmac-forms",
+    link: "./cmac-forms",
   },
   {
     title: "Company Calendar",
     description: "Stay updated with important dates and events",
     icon: Calendar,
-    link: "https://cmac-resource-center-ogui9cvg1-cojovis-projects.vercel.app/company-calendar",
+    link: "./company-calendar",
   },
   {
     title: "Meet The Builders",
