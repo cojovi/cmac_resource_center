@@ -2,6 +2,7 @@ import { Book, Calendar, FileText, HelpCircle, Users, Shield } from "lucide-reac
 import { ResourceCard } from "@/components/ResourceCard";
 import { UpcomingMeetings } from "@/components/UpcomingMeetings";
 import { Ticker } from "@/components/Ticker";
+import { SearchBar } from "@/components/SearchBar";
 
 const resources = [
   {
@@ -60,6 +61,8 @@ const Index = () => {
             Your one-stop hub for all company resources and information
           </p>
         </div>
+
+        <SearchBar />
 
         <Ticker />
 
