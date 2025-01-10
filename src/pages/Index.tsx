@@ -15,25 +15,25 @@ const resources = [
     title: "CMAC Processes",
     description: "Step-by-step guides for company processes",
     icon: FileText,
-    link: "./cmac-processes",
+    link: "/cmac-processes",
   },
   {
     title: "Team Directory",
     description: "Connect with your colleagues",
     icon: Users,
-    link: "./team-directory",
+    link: "/team-directory",
   },
   {
     title: "CMAC Forms",
     description: "Custom forms created to streamline your work",
     icon: FileText,
-    link: "./cmac-forms",
+    link: "/cmac-forms",
   },
   {
     title: "Company Calendar",
     description: "Stay updated with important dates and events",
     icon: Calendar,
-    link: "https://cmac-resource-center-ogui9cvg1-cojovis-projects.vercel.app/company-calendar",
+    link: "/company-calendar",
   },
   {
     title: "Meet The Builders",
@@ -45,7 +45,7 @@ const resources = [
     title: "CMAC Safety",
     description: "Safety manuals, protocols, and regulations",
     icon: Shield,
-    link: "./cmac-safety",
+    link: "/cmac-safety",
   },
 ];
 
