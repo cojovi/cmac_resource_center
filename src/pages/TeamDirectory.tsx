@@ -52,7 +52,7 @@ export default function TeamDirectory() {
   return (
     <main className="min-h-screen bg-background p-6">
       <Button variant="outline" asChild className="mb-6">
-        <Link href="/">
+        <Link to="/">
           <ChevronLeft className="mr-2 h-4 w-4" />
           Back to Resource Center
         </Link>
