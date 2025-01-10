@@ -1,5 +1,11 @@
-import { Users } from "lucide-react";
-import { ResourceCard } from "@/components/ResourceCard";
+import { useState } from "react";
+import { Mail, Phone, ChevronLeft } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const teamResources = [
   { firstName: "Aaron", lastName: "Garcia", email: "aarong@cmacroofing.com", phone: "817-896-65612" },
@@ -38,7 +44,7 @@ const teamResources = [
 export default function TeamDirectory() {
   const [searchTerm, setSearchTerm] = useState('')
 
-  const filteredMembers = teamMembers.filter(member => 
+  const filteredMembers = teamResources.filter(member => 
     `${member.firstName} ${member.lastName}`.toLowerCase().includes(searchTerm.toLowerCase()) ||
     member.email.toLowerCase().includes(searchTerm.toLowerCase())
   )
