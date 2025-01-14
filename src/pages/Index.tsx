@@ -72,11 +72,11 @@ const Index = () => {
           to="https://cmac-sub-packet.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
-          className="block"
+          className="block transform hover:scale-[1.02] transition-all duration-300"
         >
-          <Alert className="bg-destructive text-white hover:bg-destructive/90 transition-colors cursor-pointer">
-            <AlertTitle className="text-lg font-bold">CMAC 2025 Sub-Packet</AlertTitle>
-            <AlertDescription className="text-white/90">
+          <Alert className="bg-gradient-to-r from-destructive/90 to-destructive border-none shadow-lg text-white hover:from-destructive hover:to-destructive/90 transition-all duration-300 cursor-pointer animate-fade-in">
+            <AlertTitle className="text-lg font-bold tracking-wide">CMAC 2025 Sub-Packet</AlertTitle>
+            <AlertDescription className="text-white/95 font-medium">
               Must be filled out by Friday Jan 17th
             </AlertDescription>
           </Alert>
