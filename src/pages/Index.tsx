@@ -3,6 +3,8 @@ import { ResourceCard } from "@/components/ResourceCard";
 import { UpcomingMeetings } from "@/components/UpcomingMeetings";
 import { Ticker } from "@/components/Ticker";
 import { SearchBar } from "@/components/SearchBar";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Link } from "react-router-dom";
 
 const resources = [
   {
@@ -65,6 +67,20 @@ const Index = () => {
         <SearchBar />
 
         <Ticker />
+
+        <Link 
+          to="https://cmac-sub-packet.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block"
+        >
+          <Alert className="bg-destructive text-white hover:bg-destructive/90 transition-colors cursor-pointer">
+            <AlertTitle className="text-lg font-bold">CMAC 2025 Sub-Packet</AlertTitle>
+            <AlertDescription className="text-white/90">
+              Must be filled out by Friday Jan 17th
+            </AlertDescription>
+          </Alert>
+        </Link>
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
           <div className="md:col-span-2 lg:col-span-3">
