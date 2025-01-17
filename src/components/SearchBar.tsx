@@ -17,11 +17,11 @@ export const SearchBar = () => {
       const response = await fetch("https://cojovi.ngrok.dev/api/chat/completions", {
         method: "POST",
         headers: {
-          "Authorization": "Bearer sk-848dc06b36dd4d6aaa15eb0769a313c5",
+          "Authorization": "Bearer sk-9a0720cef84f44aab5d697fb9d9fccf9",
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "cmac-amayai",
+          model: "amayai-cmac",
           messages: [
             {
               role: "user",
