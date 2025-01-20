@@ -14,14 +14,14 @@ export const SearchBar = () => {
 
     setIsLoading(true);
     try {
-      const response = await fetch("https://cojovi.ngrok.dev/api/chat/completions", {
+      const response = await fetch("https://427b-132-147-144-208.ngrok-free.app/api/chat/completions", {
         method: "POST",
         headers: {
-          "Authorization": "Bearer sk-9a0720cef84f44aab5d697fb9d9fccf9",
+          "Authorization": "Bearer sk-508d45c236854100a2471e555587be34",
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "amayai-cmac",
+          model: "amayaicmac",
           messages: [
             {
               role: "user",
