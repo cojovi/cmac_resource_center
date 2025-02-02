@@ -1,4 +1,4 @@
-import { Book, Calendar, FileText, HelpCircle, Users, Shield } from "lucide-react";
+import { Book, Calendar, FileText, HelpCircle, Users, Shield, Database } from "lucide-react";
 import { ResourceCard } from "@/components/ResourceCard";
 import { UpcomingMeetings } from "@/components/UpcomingMeetings";
 import { Ticker } from "@/components/Ticker";
@@ -6,6 +6,13 @@ import { SearchBar } from "@/components/SearchBar";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 const resources = [
+  {
+    title: "NetSuite Details & Links",
+    description: "Access NetSuite documentation and resources",
+    icon: Database,
+    link: "/netsuite-details",
+    isSpecial: true,
+  },
   {
     title: "Employee Handbook",
     description: "Essential guidelines and policies",
@@ -47,12 +54,6 @@ const resources = [
     description: "Safety manuals, protocols, and regulations",
     icon: Shield,
     link: "/cmac-safety",
-  },
-  {
-    title: "NetSuite Details & Links",
-    description: "Access NetSuite documentation and resources",
-    icon: FileText,
-    link: "/netsuite-details",
   },
 ];
 
