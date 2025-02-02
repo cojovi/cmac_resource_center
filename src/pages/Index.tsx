@@ -48,6 +48,12 @@ const resources = [
     icon: Shield,
     link: "/cmac-safety",
   },
+  {
+    title: "NetSuite Details & Links",
+    description: "Access NetSuite documentation and resources",
+    icon: FileText,
+    link: "/netsuite-details",
+  },
 ];
 
 const Index = () => {
@@ -66,20 +72,6 @@ const Index = () => {
         <SearchBar />
 
         <Ticker />
-
-        <a
-          href="https://cmac-sub-packet.vercel.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block transform hover:scale-[1.02] transition-all duration-300"
-        >
-          <Alert className="bg-gradient-to-r from-destructive/90 to-destructive border-none shadow-lg text-white hover:from-destructive hover:to-destructive/90 transition-all duration-300 cursor-pointer animate-fade-in text-center">
-            <AlertTitle className="text-lg font-bold tracking-wide">CMAC 2025 Sub-Packet</AlertTitle>
-            <AlertDescription className="text-white/95 font-medium">
-              Must be filled out by Friday Jan 17th
-            </AlertDescription>
-          </Alert>
-        </a>
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
           <div className="md:col-span-2 lg:col-span-3">
