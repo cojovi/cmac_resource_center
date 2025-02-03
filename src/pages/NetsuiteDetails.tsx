@@ -24,7 +24,7 @@ const netsuiteResources = [
     title: "NetSuite Support Contacts",
     description: "NetSuite support team contact information, hit up Nina Tran for any questions",
     icon: Users,
-    link: "nina.tran@oracle.com",
+    link: "mailto:nina.tran@oracle.com?cc=wes@cmacroofing.com%2Ccodyv@cmacroofing.com",
   },
   {
     title: "NetSuite Info Bot",
