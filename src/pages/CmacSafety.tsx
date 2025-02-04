@@ -24,7 +24,7 @@ const safetyResources = [
     title: "CMAC Injury Policy",
     description: "Comprehensive guide for handling workplace injuries - from immediate response to follow-up procedures",
     icon: FileText,
-    link: "#", // You'll want to add the actual link to the policy document
+    link: "https://docs.google.com/document/d/your-document-id/edit?usp=sharing", // Replace with actual Google Doc URL
   },
 ];
 
