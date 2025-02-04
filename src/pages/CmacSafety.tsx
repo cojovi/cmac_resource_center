@@ -20,6 +20,12 @@ const safetyResources = [
     icon: Shield,
     link: "#",
   },
+  {
+    title: "CMAC Injury Policy",
+    description: "Comprehensive guide for handling workplace injuries - from immediate response to follow-up procedures",
+    icon: FileText,
+    link: "#", // You'll want to add the actual link to the policy document
+  },
 ];
 
 const CmacSafety = () => {
