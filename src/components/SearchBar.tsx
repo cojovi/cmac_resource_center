@@ -14,7 +14,7 @@ export const SearchBar = () => {
 
     setIsLoading(true);
     try {
-      const response = await fetch("https://427b-132-147-144-208.ngrok-free.app/api/chat/completions", {
+      const response = await fetch("https://cojovi.ngrok.dev/api/chat/completions", {
         method: "POST",
         headers: {
           "Authorization": "Bearer sk-508d45c236854100a2471e555587be34",
