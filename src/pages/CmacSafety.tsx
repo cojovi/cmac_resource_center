@@ -24,7 +24,7 @@ const safetyResources = [
     title: "CMAC Injury Policy",
     description: "Comprehensive guide for handling workplace injuries - from immediate response to follow-up procedures",
     icon: FileText,
-    link: "https://docs.google.com/document/d/your-document-id/edit?usp=sharing", // Replace with actual Google Doc URL
+    link: "https://docs.google.com/document/d/e/2PACX-1vTaKRW0Hu_V-B-x4gGzuGUDMUseNWbsH4qg_UB77aO5LRqPFxJ3WuAd3NsVtLK8zV0egyFXPpS7jOxx/pub",
   },
 ];
 
