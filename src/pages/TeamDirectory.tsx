@@ -65,6 +65,7 @@ const teamResources = [
   { firstName: "Jordan", lastName: "West", email: "jordanw@cmacroofing.com", phone: "" },
   { firstName: "Jorge", lastName: "Marquez", email: "jorgem@cmacroofing.com", phone: "" },
   { firstName: "Joseph", lastName: "Bandy", email: "josephb@cmacroofing.com", phone: "" },
+  { firstName: "Joshua", lastName: "Johnson", email: "JoshJ@cmacroofing.com", phone: "512-762-0640" },
   { firstName: "JR", lastName: "Aviles", email: "jr@cmacroofing.com", phone: "" },
   { firstName: "Juan", lastName: "Mata", email: "juanm@cmacroofing.com", phone: "" },
   { firstName: "Larry", lastName: "Cremean", email: "larryc@cmacroofing.com", phone: "" },
@@ -105,7 +106,6 @@ const teamResources = [
   { firstName: "Virginia", lastName: "Martinez", email: "virginiam@cmacroofing.com", phone: "" },
   { firstName: "Vivian", lastName: "Torres", email: "vivian@cmacroofing.com", phone: "+18177052676" },
   { firstName: "Wes", lastName: "Shierry", email: "wes@cmacroofing.com", phone: "" },
-  { firstName: "Joshua", lastName: "Johnson", email: "JoshJ@cmacroofing.com", phone: "512-762-0640" },
 ];
 
 export default function TeamDirectory() {
