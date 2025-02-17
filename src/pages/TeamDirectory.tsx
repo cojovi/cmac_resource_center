@@ -104,7 +104,8 @@ const teamResources = [
   { firstName: "Victor Jr", lastName: "Garcia", email: "victorjr@cmacroofing.com", phone: "" },
   { firstName: "Virginia", lastName: "Martinez", email: "virginiam@cmacroofing.com", phone: "" },
   { firstName: "Vivian", lastName: "Torres", email: "vivian@cmacroofing.com", phone: "+18177052676" },
-  { firstName: "Wes", lastName: "Shierry", email: "wes@cmacroofing.com", phone: "" }
+  { firstName: "Wes", lastName: "Shierry", email: "wes@cmacroofing.com", phone: "" },
+  { firstName: "Joshua", lastName: "Johnson", email: "JoshJ@cmacroofing.com", phone: "512-762-0640" },
 ];
 
 export default function TeamDirectory() {
