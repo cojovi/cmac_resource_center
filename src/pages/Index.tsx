@@ -40,7 +40,7 @@ const resources = [
     title: "Meet The Builders",
     description: "Get help with technical issues",
     icon: HelpCircle,
-    link: "/meet-builders",
+    link: "https://docs.google.com/document/d/1o3rb9Dp-HmQR1Gd02pLrxXksRSv0P85EZeUwqfM0pg8/edit?usp=sharing",
   },
   {
     title: "CMAC Safety",
