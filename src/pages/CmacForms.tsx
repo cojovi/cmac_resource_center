@@ -18,7 +18,7 @@ const formResources = [
     title: "IT Request Form",
     description: "Submit your IT support or equipment requests",
     icon: FileText,
-    link: "https://forms.google.com/it-request",
+    link: "https://forms.gle/v5AibafwoRW4ftTT8",
   },
   {
     title: "Builder Detail Form",
