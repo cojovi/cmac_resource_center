@@ -4,22 +4,22 @@ import { useEffect } from "react";
 
 export const SlackRollout = () => {
   useEffect(() => {
-    // Load the Curator.io script
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.charset = 'UTF-8';
-    script.async = true;
-    script.src = 'https://cdn.curator.io/published/23481364-d5fe-48a5-9326-1caeab5477b7.js';
-    
-    const firstScript = document.getElementsByTagName('script')[0];
-    firstScript.parentNode?.insertBefore(script, firstScript);
-
-    // Cleanup function to remove script when component unmounts
-    return () => {
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
+    // Create and execute the Curator.io script exactly as provided
+    const executeScript = () => {
+      /* curator-feed-default-feed-layout */
+      (function(){
+        var i,e,d=document,s="script";
+        i=d.createElement("script");
+        i.async=1;
+        i.charset="UTF-8";
+        i.src="https://cdn.curator.io/published/23481364-d5fe-48a5-9326-1caeab5477b7.js";
+        e=d.getElementsByTagName(s)[0];
+        e.parentNode.insertBefore(i, e);
+      })();
     };
+
+    // Execute the script
+    executeScript();
   }, []);
 
   return (
@@ -31,13 +31,9 @@ export const SlackRollout = () => {
         </CardTitle>
       </CardHeader>
       <CardContent>
+        {/* Place <div> tag where you want the feed to appear */}
         <div id="curator-feed-default-feed-layout">
-          <a 
-            href="https://curator.io" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="crt-logo crt-tag"
-          >
+          <a href="https://curator.io" target="_blank" className="crt-logo crt-tag">
             Powered by Curator.io
           </a>
         </div>
