@@ -1,4 +1,4 @@
-import { Shield, Book, FileText } from "lucide-react";
+import { Shield, Book, FileText, AlertTriangle } from "lucide-react";
 import { ResourceCard } from "@/components/ResourceCard";
 
 const safetyResources = [
@@ -13,6 +13,18 @@ const safetyResources = [
     description: "Official OCHA safety regulations and requirements",
     icon: FileText,
     link: "https://drive.google.com/file/d/1BzSi1iV_YfJ-UUnvZQIzwoLcAh9ZAv0_/view?usp=sharing",
+  },
+  {
+    title: "CMAC Procedure for OSHA Site Visit",
+    description: "Step-by-step procedures for handling OSHA site visits",
+    icon: AlertTriangle,
+    link: "https://docs.google.com/document/d/1N3DjjlR0bU3dIeOdLdlFHxVIfoAS3gGF/edit?usp=sharing&ouid=115079516805674909565&rtpof=true&sd=true",
+  },
+  {
+    title: "Workflow for OSHA Inspections",
+    description: "Complete workflow guide for OSHA inspection processes",
+    icon: Shield,
+    link: "https://docs.google.com/document/d/1ASkYvyQOzhrLzxs8y4syVQZGLAcnM6_t/edit?usp=sharing&ouid=115079516805674909565&rtpof=true&sd=true",
   },
   {
     title: "CMAC Safety Protocols",
