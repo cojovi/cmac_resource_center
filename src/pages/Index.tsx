@@ -1,6 +1,6 @@
 import { Book, Calendar, FileText, HelpCircle, Users, Shield } from "lucide-react";
 import { ResourceCard } from "@/components/ResourceCard";
-import { UpcomingMeetings } from "@/components/UpcomingMeetings";
+import { SlackRollout } from "@/components/SlackRollout";
 import { Ticker } from "@/components/Ticker";
 import { SearchBar } from "@/components/SearchBar";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -83,7 +83,7 @@ const Index = () => {
             </div>
           </div>
           <div className="md:col-span-1">
-            <UpcomingMeetings />
+            <SlackRollout />
           </div>
         </div>
       </div>
