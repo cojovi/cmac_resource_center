@@ -69,8 +69,9 @@ const Index = () => {
 
         <Alert className="bg-gradient-to-r from-destructive/90 to-destructive border-none shadow-lg text-white hover:from-destructive hover:to-destructive/90 transition-all duration-300 cursor-pointer animate-fade-in text-center">
           <AlertTitle className="text-lg font-bold tracking-wide">IMPORTANT NOTICE</AlertTitle>
-          <AlertDescription className="text-white/95 font-medium">
-            FROM NOW ON, IT REQUESTS MUST BE SUBMITTED USING THE IT TICKETING SYSTEM
+          <AlertDescription className="text-white/95 font-medium space-y-1">
+            <div>FROM NOW ON, IT REQUESTS MUST BE SUBMITTED USING THE IT TICKETING SYSTEM</div>
+            <div>WE WILL BE ROLLING OUT SLACK IN THE NEXT WEEK, IT WILL NOT BE OPTIONAL</div>
           </AlertDescription>
         </Alert>
 
