@@ -3,7 +3,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { CustomCursor } from "@/components/CustomCursor";
-import { PremiumNavigation } from "@/components/PremiumNavigation";
+import { ClickableNavigation } from "@/components/ClickableNavigation";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import Index from "./pages/Index";
 import CmacProcesses from "./pages/CmacProcesses";
@@ -22,7 +22,7 @@ export default () => (
         <CustomCursor />
         <ScrollProgress />
         <HashRouter>
-          <PremiumNavigation />
+          <ClickableNavigation />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/cmac-processes" element={<CmacProcesses />} />
