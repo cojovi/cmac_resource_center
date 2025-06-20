@@ -2,6 +2,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
 import { HashRouter, Routes, Route } from "react-router-dom";
+import { CustomCursor } from "@/components/CustomCursor";
+import { ModernNavigation } from "@/components/ModernNavigation";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import Index from "./pages/Index";
 import CmacProcesses from "./pages/CmacProcesses";
 import CmacSafety from "./pages/CmacSafety";
@@ -15,16 +18,21 @@ export default () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
-      <HashRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/cmac-processes" element={<CmacProcesses />} />
-          <Route path="/cmac-safety" element={<CmacSafety />} />
-          <Route path="/team-directory" element={<TeamDirectory />} />
-          <Route path="/cmac-forms" element={<CmacForms />} />
-          <Route path="/company-calendar" element={<CompanyCalendar />} />
-        </Routes>
-      </HashRouter>
+      <div className="custom-cursor">
+        <CustomCursor />
+        <ScrollProgress />
+        <HashRouter>
+          <ModernNavigation />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/cmac-processes" element={<CmacProcesses />} />
+            <Route path="/cmac-safety" element={<CmacSafety />} />
+            <Route path="/team-directory" element={<TeamDirectory />} />
+            <Route path="/cmac-forms" element={<CmacForms />} />
+            <Route path="/company-calendar" element={<CompanyCalendar />} />
+          </Routes>
+        </HashRouter>
+      </div>
     </TooltipProvider>
   </QueryClientProvider>
 );
