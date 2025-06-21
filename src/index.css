@@ -36,28 +36,28 @@
   }
 
   .dark {
-    --background: 220 13% 9%;
+    --background: 220 13% 6%;
     --foreground: 0 0% 98%;
-    --card: 220 13% 12%;
+    --card: 220 13% 8%;
     --card-foreground: 0 0% 98%;
-    --popover: 220 13% 12%;
+    --popover: 220 13% 8%;
     --popover-foreground: 0 0% 98%;
     --primary: 0 0% 98%;
     --primary-foreground: 220 13% 9%;
-    --secondary: 220 13% 15%;
+    --secondary: 220 13% 12%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 220 13% 15%;
+    --muted: 220 13% 12%;
     --muted-foreground: 220 9% 65%;
-    --accent: 220 13% 15%;
+    --accent: 220 13% 12%;
     --accent-foreground: 0 0% 98%;
-    --border: 220 13% 20%;
-    --input: 220 13% 20%;
+    --border: 220 13% 18%;
+    --input: 220 13% 18%;
     --ring: 0 0% 83%;
     
-    /* Dark mode shadows */
-    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.3);
-    --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.4);
-    --shadow-hard: 0 16px 60px rgba(0, 0, 0, 0.5);
+    /* Enhanced dark mode shadows */
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.5);
+    --shadow-hard: 0 16px 60px rgba(0, 0, 0, 0.6);
   }
 
   * {
@@ -65,7 +65,7 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased transition-colors duration-300;
+    @apply bg-background text-foreground antialiased transition-colors duration-500;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
     overflow-x: hidden;
@@ -79,7 +79,7 @@
   .cursor-dot {
     width: 8px;
     height: 8px;
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 50%;
     position: fixed;
     top: 0;
@@ -103,9 +103,8 @@
     transition: all 0.15s ease;
   }
 
-  /* Dark mode cursor adjustments */
   .dark .cursor-outline {
-    border-color: rgba(102, 126, 234, 0.6);
+    border-color: rgba(168, 85, 247, 0.6);
   }
 
   /* Smooth scrolling */
@@ -139,12 +138,6 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
-  .glass-dark {
-    background: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
   .dark .glass {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -152,13 +145,13 @@
 
   /* Gradient text */
   .gradient-text {
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  /* Floating animation */
+  /* Enhanced floating animation */
   @keyframes float {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
     33% { transform: translateY(-10px) rotate(1deg); }
@@ -167,30 +160,6 @@
 
   .float {
     animation: float 6s ease-in-out infinite;
-  }
-
-  /* Parallax container */
-  .parallax-container {
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    perspective: 1px;
-  }
-
-  .parallax-element {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-
-  .parallax-back {
-    transform: translateZ(-1px) scale(2);
-  }
-
-  .parallax-base {
-    transform: translateZ(0);
   }
 
   /* Enhanced animations */
@@ -259,6 +228,11 @@
     50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.6); }
   }
 
+  @keyframes shimmer {
+    0% { transform: translateX(-100%) skewX(-12deg); }
+    100% { transform: translateX(200%) skewX(-12deg); }
+  }
+
   /* Animation utilities */
   .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
@@ -288,6 +262,10 @@
     animation: pulse-glow 2s ease-in-out infinite;
   }
 
+  .animate-shimmer {
+    animation: shimmer 2s ease-in-out infinite;
+  }
+
   /* Staggered animation delays */
   .animate-delay-100 { animation-delay: 0.1s; }
   .animate-delay-200 { animation-delay: 0.2s; }
@@ -298,10 +276,10 @@
   .animate-delay-700 { animation-delay: 0.7s; }
   .animate-delay-800 { animation-delay: 0.8s; }
 
-  /* Modern button styles */
+  /* Enhanced button styles */
   .btn-modern {
     @apply relative overflow-hidden rounded-xl px-8 py-4 font-semibold text-white transition-all duration-300;
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     box-shadow: var(--shadow-soft);
   }
 
@@ -329,7 +307,7 @@
     left: 100%;
   }
 
-  /* Card hover effects */
+  /* Enhanced card hover effects */
   .card-modern {
     @apply relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 transition-all duration-500;
     box-shadow: var(--shadow-soft);
@@ -340,64 +318,7 @@
     box-shadow: var(--shadow-hard);
   }
 
-  .card-modern::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--gradient-primary);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-  }
-
-  .card-modern:hover::before {
-    opacity: 0.05;
-  }
-
-  /* Text reveal animation */
-  .text-reveal {
-    overflow: hidden;
-  }
-
-  .text-reveal span {
-    display: inline-block;
-    transform: translateY(100%);
-    animation: textReveal 0.8s ease-out forwards;
-  }
-
-  @keyframes textReveal {
-    to {
-      transform: translateY(0);
-    }
-  }
-
-  /* Magnetic button effect */
-  .magnetic {
-    transition: transform 0.3s ease;
-  }
-
-  /* Intersection observer animations */
-  .fade-in-section {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-out;
-  }
-
-  .fade-in-section.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Enhanced focus states */
-  .focus-modern:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
-  }
-
-  /* Modern input styles */
+  /* Enhanced input styles */
   .input-modern {
     @apply relative;
   }
@@ -429,7 +350,7 @@
     top: 0;
     left: 0;
     height: 3px;
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     z-index: 9999;
     transition: width 0.1s ease;
   }
