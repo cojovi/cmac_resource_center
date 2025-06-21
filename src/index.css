@@ -411,7 +411,7 @@
     box-shadow: var(--shadow-soft);
   }
 
-  /* Navigation styles */
+  /* Navigation styles - KEEP ORIGINAL, NO DARK MODE */
   .nav-modern {
     @apply fixed left-1/2 z-50 -translate-x-1/2 transform;
     background: rgba(255, 255, 255, 0.9);
@@ -421,11 +421,6 @@
     padding: 12px 24px;
     box-shadow: var(--shadow-soft);
     transition: all 0.3s ease;
-  }
-
-  .dark .nav-modern {
-    background: rgba(31, 41, 55, 0.9);
-    border: 1px solid rgba(75, 85, 99, 0.3);
   }
 
   /* Progress indicator */

@@ -53,32 +53,34 @@ export const ModernNavigation = () => {
         isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       }`}
     >
-      <div className="flex items-center space-x-1">
-        {/* Navigation Items */}
-        {navigationItems.map((item) => {
-          const Icon = item.icon;
-          const isActive = location.pathname === item.path;
-          
-          return (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`relative flex items-center space-x-2 rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 hover:bg-white/20 ${
-                isActive ? 'bg-white/20 text-gray-900 dark:text-white' : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'
-              }`}
-              data-cursor="hover"
-            >
-              <Icon className="h-4 w-4" />
-              <span className="hidden md:block">{item.label}</span>
-              {isActive && (
-                <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-10" />
-              )}
-            </Link>
-          );
-        })}
+      <div className="flex items-center justify-between space-x-1">
+        {/* Navigation Items - Keep Original Styling */}
+        <div className="flex items-center space-x-1">
+          {navigationItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = location.pathname === item.path;
+            
+            return (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`relative flex items-center space-x-2 rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 hover:bg-gray-100 ${
+                  isActive ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:text-gray-900'
+                }`}
+                data-cursor="hover"
+              >
+                <Icon className="h-4 w-4" />
+                <span className="hidden md:block">{item.label}</span>
+                {isActive && (
+                  <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-10" />
+                )}
+              </Link>
+            );
+          })}
+        </div>
         
-        {/* Theme Toggle */}
-        <div className="ml-2">
+        {/* Theme Toggle - Positioned to the right */}
+        <div className="ml-4">
           <ThemeToggle />
         </div>
       </div>
