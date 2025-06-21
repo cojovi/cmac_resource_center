@@ -34,6 +34,7 @@ export const ModernResourceCard = ({
   // Get a consistent gradient based on title hash
   const gradientIndex = title.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) % gradientCombos.length;
   const gradient = gradientCombos[gradientIndex];
+  const gradientId = `arrow-gradient-${gradientIndex}`;
   
   const CardContent = (
     <div 
@@ -79,13 +80,13 @@ export const ModernResourceCard = ({
             Access Resource
           </span>
           <svg 
-            className={`h-4 w-4 transition-all duration-300 group-hover:translate-x-2 group-hover:scale-110 text-gray-600 dark:text-gray-400 group-hover:text-transparent group-hover:fill-current`}
+            className="h-4 w-4 transition-all duration-300 group-hover:translate-x-2 group-hover:scale-110 text-gray-600 dark:text-gray-400 group-hover:text-transparent"
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24"
           >
             <defs>
-              <linearGradient id={`arrow-gradient-${gradientIndex}`} x1="0%" y1="0%" x2="100%" y2="0%">
+              <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#ec4899" />
                 <stop offset="50%" stopColor="#8b5cf6" />
                 <stop offset="100%" stopColor="#06b6d4" />
@@ -96,7 +97,9 @@ export const ModernResourceCard = ({
               strokeLinejoin="round" 
               strokeWidth={2} 
               d="M9 5l7 7-7 7"
-              className="group-hover:stroke-[url(#arrow-gradient-" + gradientIndex + ")]"
+              style={{
+                stroke: isHovered ? `url(#${gradientId})` : 'currentColor'
+              }}
             />
           </svg>
         </div>
