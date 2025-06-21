@@ -14,7 +14,14 @@ const navigationItems = [
 export const ModernNavigation = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [hasNotificationBanner, setHasNotificationBanner] = useState(true);
   const location = useLocation();
+
+  useEffect(() => {
+    // Check if notification banner exists
+    const banner = document.querySelector('[data-notification-banner]');
+    setHasNotificationBanner(!!banner);
+  }, []);
 
   useEffect(() => {
     const controlNavbar = () => {
@@ -36,9 +43,12 @@ export const ModernNavigation = () => {
     }
   }, [lastScrollY]);
 
+  // Adjust top position based on notification banner presence
+  const topPosition = hasNotificationBanner ? 'top-20' : 'top-6';
+
   return (
     <nav
-      className={`nav-modern transition-all duration-300 ${
+      className={`nav-modern transition-all duration-300 ${topPosition} ${
         isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       }`}
     >

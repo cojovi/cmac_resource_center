@@ -70,7 +70,9 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Notification Banner */}
-      <NotificationBanner />
+      <div data-notification-banner>
+        <NotificationBanner />
+      </div>
       
       {/* Hero Section */}
       <HeroSection

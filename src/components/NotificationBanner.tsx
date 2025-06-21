@@ -7,7 +7,7 @@ export const NotificationBanner = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="relative overflow-hidden bg-gradient-to-r from-red-500 to-pink-500 text-white animate-fade-in-down">
+    <div className="relative overflow-hidden bg-gradient-to-r from-red-500 to-pink-500 text-white animate-fade-in-down z-[60]">
       <div className="absolute inset-0 bg-black opacity-10" />
       <div className="relative px-6 py-4">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
