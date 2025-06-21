@@ -38,35 +38,44 @@ export const ModernResourceCard = ({
   
   const CardContent = (
     <div 
-      className={`card-modern group relative h-full p-8 animate-fade-in-up overflow-hidden`}
+      className={`group relative h-full p-8 animate-fade-in-up overflow-hidden transition-all duration-500 rounded-2xl bg-white dark:bg-gray-800 shadow-soft hover:shadow-hard hover:-translate-y-2 border border-gray-100 dark:border-gray-700`}
       style={{ animationDelay: `${delay}ms` }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       data-cursor="hover"
     >
-      {/* Dynamic gradient background that appears on hover */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-10 dark:group-hover:opacity-20 transition-all duration-500 transform scale-110 group-hover:scale-100`} />
+      {/* Light Mode: Simple hover effect */}
+      <div className="dark:hidden absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 opacity-0 group-hover:opacity-50 transition-all duration-300 rounded-2xl" />
       
-      {/* Animated border gradient */}
-      <div className={`absolute inset-0 bg-gradient-to-r ${gradient} opacity-0 group-hover:opacity-20 rounded-2xl blur-sm transition-all duration-500`} />
+      {/* Dark Mode: Dynamic gradient background that appears on hover */}
+      <div className={`hidden dark:block absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-20 transition-all duration-500 transform scale-110 group-hover:scale-100`} />
       
-      {/* Icon container with vibrant styling */}
+      {/* Dark Mode: Animated border gradient */}
+      <div className={`hidden dark:block absolute inset-0 bg-gradient-to-r ${gradient} opacity-0 group-hover:opacity-20 rounded-2xl blur-sm transition-all duration-500`} />
+      
+      {/* Icon container with theme-aware styling */}
       <div className="relative mb-6">
-        <div className={`inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${gradient} text-white shadow-soft transition-all duration-500 group-hover:scale-110 group-hover:shadow-medium group-hover:rotate-6`}>
+        {/* Light Mode: Simple icon */}
+        <div className="dark:hidden inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gray-100 group-hover:bg-gray-200 text-gray-600 transition-all duration-300 group-hover:scale-105">
           <Icon className="h-8 w-8" />
         </div>
         
-        {/* Pulsing glow effect */}
-        <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-30 transition-all duration-500 animate-pulse blur-md`} />
+        {/* Dark Mode: Vibrant icon with effects */}
+        <div className={`hidden dark:inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${gradient} text-white shadow-soft transition-all duration-500 group-hover:scale-110 group-hover:shadow-medium group-hover:rotate-6`}>
+          <Icon className="h-8 w-8" />
+        </div>
         
-        {/* Floating sparkle effects */}
-        <div className="absolute -top-1 -right-1 h-3 w-3 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 animate-ping" />
-        <div className="absolute -bottom-1 -left-1 h-2 w-2 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 animate-ping" style={{ animationDelay: '0.2s' }} />
+        {/* Dark Mode: Pulsing glow effect */}
+        <div className={`hidden dark:block absolute inset-0 rounded-2xl bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-30 transition-all duration-500 animate-pulse blur-md`} />
+        
+        {/* Dark Mode: Floating sparkle effects */}
+        <div className="hidden dark:block absolute -top-1 -right-1 h-3 w-3 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 animate-ping" />
+        <div className="hidden dark:block absolute -bottom-1 -left-1 h-2 w-2 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 animate-ping" style={{ animationDelay: '0.2s' }} />
       </div>
 
-      {/* Content with enhanced styling */}
+      {/* Content with theme-aware styling */}
       <div className="relative space-y-4">
-        <h3 className="text-xl font-bold text-gray-900 dark:text-white transition-all duration-300 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-gray-900 group-hover:to-gray-600 dark:group-hover:from-white dark:group-hover:to-gray-300">
+        <h3 className="text-xl font-bold text-gray-900 dark:text-white transition-all duration-300 dark:group-hover:text-transparent dark:group-hover:bg-gradient-to-r dark:group-hover:bg-clip-text dark:group-hover:from-gray-900 dark:group-hover:to-gray-600">
           {title}
         </h3>
         
@@ -76,11 +85,18 @@ export const ModernResourceCard = ({
 
         {/* Enhanced call to action */}
         <div className="flex items-center space-x-2 pt-4">
-          <span className={`text-sm font-semibold transition-all duration-300 group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:text-transparent ${gradient.replace('from-', 'group-hover:from-').replace('via-', 'group-hover:via-').replace('to-', 'group-hover:to-')} text-gray-800 dark:text-gray-200`}>
+          {/* Light Mode: Simple text */}
+          <span className="dark:hidden text-sm font-semibold text-gray-800 group-hover:text-gray-900 transition-colors duration-300">
             Access Resource
           </span>
+          
+          {/* Dark Mode: Gradient text */}
+          <span className={`hidden dark:block text-sm font-semibold transition-all duration-300 group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:text-transparent ${gradient.replace('from-', 'group-hover:from-').replace('via-', 'group-hover:via-').replace('to-', 'group-hover:to-')} text-gray-200`}>
+            Access Resource
+          </span>
+          
           <svg 
-            className="h-4 w-4 transition-all duration-300 group-hover:translate-x-2 group-hover:scale-110 text-gray-600 dark:text-gray-400 group-hover:text-transparent"
+            className="h-4 w-4 transition-all duration-300 group-hover:translate-x-2 group-hover:scale-110 text-gray-600 dark:text-gray-400 dark:group-hover:text-transparent"
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24"
@@ -105,15 +121,15 @@ export const ModernResourceCard = ({
         </div>
       </div>
 
-      {/* Magnetic hover effect with particles */}
-      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+      {/* Dark Mode: Magnetic hover effect with particles */}
+      <div className="hidden dark:block absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
         <div className="absolute top-4 right-4 h-1 w-1 bg-white rounded-full animate-ping" />
         <div className="absolute top-8 right-8 h-1 w-1 bg-white rounded-full animate-ping" style={{ animationDelay: '0.5s' }} />
         <div className="absolute bottom-4 left-4 h-1 w-1 bg-white rounded-full animate-ping" style={{ animationDelay: '1s' }} />
       </div>
 
-      {/* Shimmer effect */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
+      {/* Dark Mode: Shimmer effect */}
+      <div className="hidden dark:block absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out" />
       </div>
     </div>

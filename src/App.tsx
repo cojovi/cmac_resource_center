@@ -19,8 +19,8 @@ export default () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider 
       attribute="class"
-      defaultTheme="light"
-      enableSystem={true}
+      defaultTheme="dark"
+      enableSystem={false}
       disableTransitionOnChange={false}
     >
       <TooltipProvider>

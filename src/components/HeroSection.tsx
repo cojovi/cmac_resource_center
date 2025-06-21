@@ -25,27 +25,34 @@ export const HeroSection = ({ title, subtitle, showSearch = false, onSearch }: H
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-500">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Light Mode: Simple decorative elements */}
+      <div className="dark:hidden absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-20 h-32 w-32 rounded-full bg-gradient-accent opacity-10 float" />
+        <div className="absolute top-40 right-32 h-24 w-24 rounded-2xl bg-gradient-primary opacity-10 float" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-32 left-1/4 h-40 w-40 rounded-full bg-gradient-secondary opacity-10 float" style={{ animationDelay: '4s' }} />
+      </div>
+
+      {/* Dark Mode: Enhanced animated background */}
+      <div className="hidden dark:block absolute inset-0 overflow-hidden">
         {/* Primary gradient blob */}
-        <div className="absolute -top-1/2 -right-1/2 h-full w-full rounded-full bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 dark:from-blue-600/30 dark:via-purple-600/30 dark:to-pink-600/30 blur-3xl animate-pulse" />
-        <div className="absolute -bottom-1/2 -left-1/2 h-full w-full rounded-full bg-gradient-to-br from-green-500/20 via-blue-500/20 to-purple-500/20 dark:from-green-600/30 dark:via-blue-600/30 dark:to-purple-600/30 blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute -top-1/2 -right-1/2 h-full w-full rounded-full bg-gradient-to-br from-blue-600/30 via-purple-600/30 to-pink-600/30 blur-3xl animate-pulse" />
+        <div className="absolute -bottom-1/2 -left-1/2 h-full w-full rounded-full bg-gradient-to-br from-green-600/30 via-blue-600/30 to-purple-600/30 blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
         
         {/* Floating geometric shapes with enhanced colors */}
-        <div className="absolute top-20 left-20 h-32 w-32 rounded-full bg-gradient-to-br from-pink-400 to-red-500 opacity-20 dark:opacity-30 float animate-pulse" />
-        <div className="absolute top-40 right-32 h-24 w-24 rounded-2xl bg-gradient-to-br from-blue-400 to-purple-500 opacity-20 dark:opacity-30 float animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute bottom-32 left-1/4 h-40 w-40 rounded-full bg-gradient-to-br from-green-400 to-teal-500 opacity-20 dark:opacity-30 float animate-pulse" style={{ animationDelay: '4s' }} />
-        <div className="absolute top-60 right-20 h-28 w-28 rounded-xl bg-gradient-to-br from-yellow-400 to-orange-500 opacity-20 dark:opacity-30 float animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-20 left-20 h-32 w-32 rounded-full bg-gradient-to-br from-pink-400 to-red-500 opacity-30 float animate-pulse" />
+        <div className="absolute top-40 right-32 h-24 w-24 rounded-2xl bg-gradient-to-br from-blue-400 to-purple-500 opacity-30 float animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-32 left-1/4 h-40 w-40 rounded-full bg-gradient-to-br from-green-400 to-teal-500 opacity-30 float animate-pulse" style={{ animationDelay: '4s' }} />
+        <div className="absolute top-60 right-20 h-28 w-28 rounded-xl bg-gradient-to-br from-yellow-400 to-orange-500 opacity-30 float animate-pulse" style={{ animationDelay: '1s' }} />
         
         {/* Moving gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent dark:via-purple-500/10 animate-pulse" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/10 to-transparent animate-pulse" />
       </div>
 
       <div className="relative z-10 w-full max-w-6xl px-6 text-center">
         {/* Main heading */}
         <div className="mb-8 space-y-6">
-          <h1 className={`text-6xl md:text-8xl font-bold text-gray-900 dark:text-white leading-tight transition-colors duration-500 ${mounted ? 'animate-fade-in-up' : 'opacity-0'}`}>
-            <span className="block">Welcome to</span>
+          <h1 className={`text-6xl md:text-8xl font-bold leading-tight transition-colors duration-500 ${mounted ? 'animate-fade-in-up' : 'opacity-0'}`}>
+            <span className="block text-gray-900 dark:text-white">Welcome to</span>
             <span className="block gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">{title}</span>
           </h1>
           
@@ -59,7 +66,8 @@ export const HeroSection = ({ title, subtitle, showSearch = false, onSearch }: H
           <div className={`max-w-2xl mx-auto ${mounted ? 'animate-fade-in-up animate-delay-400' : 'opacity-0'}`}>
             <form onSubmit={handleSearchSubmit} className="relative">
               <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300" />
+                {/* Enhanced glow for dark mode */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl blur opacity-20 dark:opacity-30 group-hover:opacity-30 dark:group-hover:opacity-40 transition-opacity duration-300" />
                 <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-soft border border-gray-100 dark:border-gray-700 transition-colors duration-300">
                   <div className="flex items-center p-2">
                     <Search className="ml-6 h-6 w-6 text-gray-400 dark:text-gray-500" />
