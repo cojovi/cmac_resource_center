@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Home, Book, Users, FileText, Calendar, Shield } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 const navigationItems = [
   { icon: Home, label: 'Home', path: '/' },
@@ -53,6 +54,7 @@ export const ModernNavigation = () => {
       }`}
     >
       <div className="flex items-center space-x-1">
+        {/* Navigation Items */}
         {navigationItems.map((item) => {
           const Icon = item.icon;
           const isActive = location.pathname === item.path;
@@ -61,8 +63,8 @@ export const ModernNavigation = () => {
             <Link
               key={item.path}
               to={item.path}
-              className={`relative flex items-center space-x-2 rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 hover:bg-gray-100 ${
-                isActive ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:text-gray-900'
+              className={`relative flex items-center space-x-2 rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 hover:bg-white/20 ${
+                isActive ? 'bg-white/20 text-gray-900 dark:text-white' : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'
               }`}
               data-cursor="hover"
             >
@@ -74,6 +76,11 @@ export const ModernNavigation = () => {
             </Link>
           );
         })}
+        
+        {/* Theme Toggle */}
+        <div className="ml-2">
+          <ThemeToggle />
+        </div>
       </div>
     </nav>
   );

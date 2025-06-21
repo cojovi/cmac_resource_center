@@ -68,7 +68,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background transition-colors duration-300">
       {/* Notification Banner */}
       <div data-notification-banner>
         <NotificationBanner />
@@ -92,10 +92,10 @@ const Index = () => {
           <div className="max-w-7xl mx-auto">
             {/* Section Header */}
             <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                 Quick Access Resources
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                 Everything you need to stay productive and connected with your team
               </p>
             </div>
@@ -118,28 +118,28 @@ const Index = () => {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                 <div className="lg:col-span-2 space-y-8">
                   {/* Additional content can go here */}
-                  <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 shadow-soft">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-3xl p-8 shadow-soft transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-foreground mb-4">
                       Stay Connected
                     </h3>
-                    <p className="text-gray-600 mb-6">
+                    <p className="text-muted-foreground mb-6">
                       Access real-time updates, collaborate with your team, and stay informed 
                       about the latest company news and announcements.
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="bg-white rounded-2xl p-6 shadow-soft">
+                      <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-soft transition-colors duration-300">
                         <div className="h-12 w-12 bg-gradient-primary rounded-xl mb-4 flex items-center justify-center">
                           <FileText className="h-6 w-6 text-white" />
                         </div>
-                        <h4 className="font-semibold text-gray-900 mb-2">Documentation</h4>
-                        <p className="text-sm text-gray-600">Access comprehensive guides and procedures</p>
+                        <h4 className="font-semibold text-foreground mb-2">Documentation</h4>
+                        <p className="text-sm text-muted-foreground">Access comprehensive guides and procedures</p>
                       </div>
-                      <div className="bg-white rounded-2xl p-6 shadow-soft">
+                      <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-soft transition-colors duration-300">
                         <div className="h-12 w-12 bg-gradient-secondary rounded-xl mb-4 flex items-center justify-center">
                           <Users className="h-6 w-6 text-white" />
                         </div>
-                        <h4 className="font-semibold text-gray-900 mb-2">Collaboration</h4>
-                        <p className="text-sm text-gray-600">Connect with team members instantly</p>
+                        <h4 className="font-semibold text-foreground mb-2">Collaboration</h4>
+                        <p className="text-sm text-muted-foreground">Connect with team members instantly</p>
                       </div>
                     </div>
                   </div>
