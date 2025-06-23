@@ -1,4 +1,4 @@
-import { Book, Calendar, FileText, HelpCircle, Users, Shield } from "lucide-react";
+import { Book, Calendar, FileText, Users, Shield } from "lucide-react";
 import { ModernResourceCard } from "@/components/ModernResourceCard";
 import { SlackRollout } from "@/components/SlackRollout";
 import { ModernTicker } from "@/components/ModernTicker";
@@ -37,12 +37,6 @@ const resources = [
     description: "Stay updated with important dates and upcoming events",
     icon: Calendar,
     link: "/company-calendar",
-  },
-  {
-    title: "Meet The Builders",
-    description: "Get technical support and connect with our development team",
-    icon: HelpCircle,
-    link: "https://docs.google.com/document/d/1o3rb9Dp-HmQR1Gd02pLrxXksRSv0P85EZeUwqfM0pg8/edit?usp=sharing",
   },
   {
     title: "CMAC Safety",
@@ -122,24 +116,34 @@ const Index = () => {
               </p>
             </div>
 
-            {/* Resources Grid - Improved responsive layout */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8 mb-12 md:mb-16">
-              {resources.map((resource, index) => (
-                <div key={resource.title} className="h-full">
-                  <ModernResourceCard
-                    {...resource}
-                    delay={index * 100}
-                  />
+            {/* Resources Grid with Slack Component Layout */}
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 md:gap-8 mb-12 md:mb-16">
+              {/* Resources Cards - 2 rows of 3 cards */}
+              <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                {resources.map((resource, index) => (
+                  <div key={resource.title} className="h-full">
+                    <ModernResourceCard
+                      {...resource}
+                      delay={index * 100}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* Slack Component on the right */}
+              <div className="lg:col-span-1 flex items-start">
+                <div className={`w-full ${isVisible ? 'animate-fade-in-up animate-delay-600' : 'opacity-0'}`}>
+                  <SlackRollout />
                 </div>
-              ))}
+              </div>
             </div>
 
             {/* Enhanced Connection Section */}
             <div className={`${isVisible ? 'animate-fade-in-up animate-delay-800' : 'opacity-0'}`}>
               <SectionDivider />
               
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 items-start">
-                <div className="lg:col-span-2 space-y-6 md:space-y-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-start">
+                <div className="space-y-6 md:space-y-8">
                   {/* Connection section with enhanced responsive design */}
                   <div className="card-modern p-6 md:p-8 group">
                     <div className="relative space-y-4 md:space-y-6">
@@ -185,8 +189,8 @@ const Index = () => {
                   </div>
                 </div>
                 
-                <div className="lg:col-span-1">
-                  <SlackRollout />
+                <div className="space-y-6">
+                  {/* Additional content can go here if needed */}
                 </div>
               </div>
             </div>
