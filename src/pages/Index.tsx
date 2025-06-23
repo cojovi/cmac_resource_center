@@ -116,13 +116,13 @@ const Index = () => {
               </p>
             </div>
 
-            {/* Main Layout Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 md:gap-8 mb-12 md:mb-16">
-              {/* Resources Cards - 2 rows of 3 cards, compact square cards */}
-              <div className="lg:col-span-3">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {/* Main Layout - Resources and Slack Side by Side */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12 md:mb-16">
+              {/* Left Side - Resource Cards (2 rows of 3) */}
+              <div className="lg:col-span-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {resources.map((resource, index) => (
-                    <div key={resource.title} className="aspect-square">
+                    <div key={resource.title} className="h-full">
                       <ModernResourceCard
                         {...resource}
                         delay={index * 100}
@@ -132,49 +132,56 @@ const Index = () => {
                 </div>
               </div>
 
-              {/* Right Column with Slack and Stay Connected */}
-              <div className="lg:col-span-1 space-y-6">
-                {/* Slack Component */}
+              {/* Right Side - Slack Component */}
+              <div className="lg:col-span-1">
                 <div className={`${isVisible ? 'animate-fade-in-up animate-delay-600' : 'opacity-0'}`}>
                   <SlackRollout />
                 </div>
+              </div>
+            </div>
 
-                {/* Stay Connected Section - Moved up here */}
+            {/* Stay Connected Section - Positioned below in the space shown in image */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {/* Empty space on left to align with Slack component */}
+              <div className="lg:col-span-2"></div>
+              
+              {/* Stay Connected - Positioned exactly where shown in the image */}
+              <div className="lg:col-span-1">
                 <div className={`${isVisible ? 'animate-fade-in-up animate-delay-800' : 'opacity-0'}`}>
-                  <div className="card-modern p-6 group">
-                    <div className="relative space-y-4">
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white dark:group-hover:bg-gradient-to-r dark:group-hover:from-blue-400 dark:group-hover:to-purple-400 dark:group-hover:bg-clip-text dark:group-hover:text-transparent transition-all duration-300">
+                  <div className="card-modern p-6 md:p-8 group">
+                    <div className="relative space-y-4 md:space-y-6">
+                      <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white dark:group-hover:bg-gradient-to-r dark:group-hover:from-blue-400 dark:group-hover:to-purple-400 dark:group-hover:bg-clip-text dark:group-hover:text-transparent transition-all duration-300">
                         Stay Connected
                       </h3>
-                      <p className="text-sm text-gray-600 dark:text-muted-foreground leading-relaxed">
+                      <p className="text-base md:text-lg text-gray-600 dark:text-muted-foreground leading-relaxed">
                         Access real-time updates, collaborate with your team, and stay informed 
                         about the latest company news and announcements.
                       </p>
                       
-                      {/* Feature cards */}
-                      <div className="space-y-3">
-                        <div className="card-modern p-3 group/inner">
-                          <div className="flex items-start space-x-3">
-                            <div className="h-8 w-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center group-hover/inner:scale-105 transition-transform duration-300 flex-shrink-0">
-                              <FileText className="h-4 w-4 text-white" />
+                      {/* Feature cards with improved mobile layout */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                        <div className="card-modern p-4 md:p-6 group/inner">
+                          <div className="flex items-start space-x-4">
+                            <div className="h-12 w-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center group-hover/inner:scale-105 transition-transform duration-300 flex-shrink-0">
+                              <FileText className="h-6 w-6 text-white" />
                             </div>
-                            <div className="space-y-1">
-                              <h4 className="text-sm font-semibold text-gray-900 dark:text-foreground">Documentation</h4>
-                              <p className="text-xs text-gray-600 dark:text-muted-foreground leading-relaxed">
+                            <div className="space-y-2">
+                              <h4 className="font-semibold text-gray-900 dark:text-foreground">Documentation</h4>
+                              <p className="text-sm text-gray-600 dark:text-muted-foreground leading-relaxed">
                                 Access comprehensive guides and procedures
                               </p>
                             </div>
                           </div>
                         </div>
                         
-                        <div className="card-modern p-3 group/inner">
-                          <div className="flex items-start space-x-3">
-                            <div className="h-8 w-8 bg-gradient-to-br from-pink-500 to-red-500 rounded-lg flex items-center justify-center group-hover/inner:scale-105 transition-transform duration-300 flex-shrink-0">
-                              <Users className="h-4 w-4 text-white" />
+                        <div className="card-modern p-4 md:p-6 group/inner">
+                          <div className="flex items-start space-x-4">
+                            <div className="h-12 w-12 bg-gradient-to-br from-pink-500 to-red-500 rounded-xl flex items-center justify-center group-hover/inner:scale-105 transition-transform duration-300 flex-shrink-0">
+                              <Users className="h-6 w-6 text-white" />
                             </div>
-                            <div className="space-y-1">
-                              <h4 className="text-sm font-semibold text-gray-900 dark:text-foreground">Collaboration</h4>
-                              <p className="text-xs text-gray-600 dark:text-muted-foreground leading-relaxed">
+                            <div className="space-y-2">
+                              <h4 className="font-semibold text-gray-900 dark:text-foreground">Collaboration</h4>
+                              <p className="text-sm text-gray-600 dark:text-muted-foreground leading-relaxed">
                                 Connect with team members instantly
                               </p>
                             </div>
