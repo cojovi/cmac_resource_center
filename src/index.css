@@ -54,7 +54,7 @@
     --input: 220 13% 18%;
     --ring: 0 0% 83%;
     
-    /* Enhanced dark mode shadows */
+    /* Enhanced dark mode shadows with better contrast */
     --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.4);
     --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.5);
     --shadow-hard: 0 16px 60px rgba(0, 0, 0, 0.6);
@@ -129,6 +129,10 @@
 
   ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
   }
 
   /* Glass morphism effect */
@@ -278,7 +282,7 @@
 
   /* Enhanced button styles */
   .btn-modern {
-    @apply relative overflow-hidden rounded-xl px-8 py-4 font-semibold text-white transition-all duration-300;
+    @apply relative overflow-hidden rounded-xl px-6 md:px-8 py-3 md:py-4 font-semibold text-white transition-all duration-300;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     box-shadow: var(--shadow-soft);
   }
@@ -307,9 +311,11 @@
     left: 100%;
   }
 
-  /* Enhanced card hover effects */
+  /* RESTORED: Enhanced card hover effects with consistent styling */
   .card-modern {
-    @apply relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 transition-all duration-500;
+    @apply relative overflow-hidden rounded-2xl transition-all duration-500;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
     box-shadow: var(--shadow-soft);
   }
 
@@ -318,18 +324,48 @@
     box-shadow: var(--shadow-hard);
   }
 
-  /* Enhanced input styles */
+  /* Theme-aware card background overlay */
+  .card-modern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    border-radius: inherit;
+  }
+
+  .card-modern:hover::before {
+    opacity: 0.05;
+  }
+
+  .dark .card-modern:hover::before {
+    opacity: 0.1;
+  }
+
+  /* Enhanced input styles with better responsiveness */
   .input-modern {
     @apply relative;
   }
 
   .input-modern input {
-    @apply w-full rounded-xl border-2 border-transparent bg-gray-50 dark:bg-gray-800 px-6 py-4 text-lg transition-all duration-300;
+    @apply w-full rounded-xl border-2 border-transparent px-4 md:px-6 py-3 md:py-4 text-base md:text-lg transition-all duration-300;
+    background: hsl(var(--muted));
+    color: hsl(var(--foreground));
   }
 
   .input-modern input:focus {
-    @apply border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700;
+    border-color: hsl(var(--border));
+    background: hsl(var(--background));
     box-shadow: var(--shadow-soft);
+  }
+
+  .input-modern input::placeholder {
+    color: hsl(var(--muted-foreground));
   }
 
   /* Navigation styles - KEEP ORIGINAL, NO DARK MODE */
@@ -353,5 +389,88 @@
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     z-index: 9999;
     transition: width 0.1s ease;
+  }
+
+  /* Utility classes for responsive text and spacing */
+  .text-responsive {
+    @apply text-sm md:text-base lg:text-lg;
+  }
+
+  .heading-responsive {
+    @apply text-xl md:text-2xl lg:text-3xl;
+  }
+
+  .spacing-responsive {
+    @apply space-y-3 md:space-y-4 lg:space-y-6;
+  }
+
+  /* Line clamp utility for consistent text truncation */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Focus states for better accessibility */
+  .focus-modern:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+  }
+
+  .dark .focus-modern:focus {
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.3);
+  }
+}
+
+/* Media queries for enhanced responsiveness */
+@media (max-width: 640px) {
+  .card-modern {
+    @apply rounded-xl;
+  }
+  
+  .card-modern:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+}
+
+@media (max-width: 768px) {
+  .btn-modern {
+    @apply px-4 py-2 text-sm;
+  }
+}
+
+/* Print styles for better accessibility */
+@media print {
+  .card-modern {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  
+  .card-modern:hover {
+    transform: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .card-modern {
+    border: 2px solid hsl(var(--border));
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .card-modern,
+  .btn-modern,
+  .animate-fade-in-up,
+  .animate-fade-in-down,
+  .float {
+    animation: none;
+    transition: none;
+  }
+  
+  .card-modern:hover {
+    transform: none;
   }
 }

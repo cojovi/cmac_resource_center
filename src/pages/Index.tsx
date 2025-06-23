@@ -66,23 +66,21 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-background transition-colors duration-300 relative overflow-hidden">
+    <div className="min-h-screen transition-colors duration-300 relative overflow-hidden">
       {/* Light Mode: Clean Simple Background */}
-      <div className="dark:hidden">
-        {/* Simple white background for light mode */}
-      </div>
+      <div className="dark:hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 min-h-screen" />
 
-      {/* Dark Mode: Animated background elements */}
-      <div className="hidden dark:block fixed inset-0 -z-10">
-        {/* Dynamic gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/50 via-purple-950/30 to-pink-950/50 animate-pulse" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.2),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(168,85,247,0.2),transparent_50%)]" />
+      {/* Dark Mode: Enhanced animated background */}
+      <div className="hidden dark:block fixed inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 -z-10">
+        {/* Dynamic gradient overlays with better performance */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.15),transparent_50%)] animate-pulse" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(168,85,247,0.15),transparent_50%)] animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.1),transparent_50%)] animate-pulse" style={{ animationDelay: '4s' }} />
         
-        {/* Floating geometric shapes */}
-        <div className="absolute top-20 left-10 h-64 w-64 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 h-80 w-80 rounded-full bg-gradient-to-br from-pink-500/20 to-red-500/20 blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 h-96 w-96 rounded-full bg-gradient-to-br from-green-500/15 to-teal-500/15 blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
+        {/* Floating geometric shapes - optimized */}
+        <div className="absolute top-20 left-10 h-48 w-48 rounded-full bg-gradient-to-br from-blue-500/10 to-purple-500/10 blur-2xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 h-64 w-64 rounded-full bg-gradient-to-br from-pink-500/10 to-red-500/10 blur-2xl animate-pulse" style={{ animationDelay: '3s' }} />
+        <div className="absolute top-1/2 left-1/3 h-32 w-32 rounded-full bg-gradient-to-br from-green-500/10 to-teal-500/10 blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
       {/* Notification Banner */}
@@ -102,70 +100,85 @@ const Index = () => {
       <ModernTicker />
 
       {/* Main Content */}
-      <main className="relative">
+      <main className="relative z-10">
         {/* Resources Section */}
-        <section className="py-24 px-6 relative">
-          {/* Light Mode: Simple background */}
-          <div className="dark:hidden absolute inset-0 bg-gray-50/30" />
+        <section className="py-16 md:py-24 px-4 md:px-6 relative">
+          {/* Light Mode: Subtle background texture */}
+          <div className="dark:hidden absolute inset-0 bg-gradient-to-b from-white/50 via-gray-50/30 to-white/50" />
           
-          {/* Dark Mode: Enhanced background */}
-          <div className="hidden dark:block absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/50 to-transparent" />
+          {/* Dark Mode: Enhanced section background */}
+          <div className="hidden dark:block absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/30 to-transparent" />
           
           <div className="max-w-7xl mx-auto relative">
-            {/* Section Header */}
-            <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:bg-gradient-to-r dark:from-white dark:via-blue-100 dark:to-purple-100 dark:bg-clip-text dark:text-transparent">
-                Quick Access Resources
+            {/* Section Header with improved responsive typography */}
+            <div className={`text-center mb-12 md:mb-16 space-y-4 md:space-y-6 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
+                <span className="dark:bg-gradient-to-r dark:from-white dark:via-blue-100 dark:to-purple-100 dark:bg-clip-text dark:text-transparent">
+                  Quick Access Resources
+                </span>
               </h2>
-              <p className="text-xl text-gray-600 dark:text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-gray-600 dark:text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 Everything you need to stay productive and connected with your team
               </p>
             </div>
 
-            {/* Resources Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16">
+            {/* Resources Grid - Improved responsive layout */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8 mb-12 md:mb-16">
               {resources.map((resource, index) => (
-                <ModernResourceCard
-                  key={resource.title}
-                  {...resource}
-                  delay={index * 100}
-                />
+                <div key={resource.title} className="h-full">
+                  <ModernResourceCard
+                    {...resource}
+                    delay={index * 100}
+                  />
+                </div>
               ))}
             </div>
 
-            {/* Slack Integration Section */}
+            {/* Enhanced Connection Section */}
             <div className={`${isVisible ? 'animate-fade-in-up animate-delay-800' : 'opacity-0'}`}>
               <SectionDivider />
               
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-                <div className="lg:col-span-2 space-y-8">
-                  {/* Connection section with theme-aware styling */}
-                  <div className="bg-white dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl p-8 shadow-soft transition-colors duration-300 relative overflow-hidden">
-                    {/* Dark mode background decoration */}
-                    <div className="hidden dark:block absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5" />
-                    
-                    <div className="relative">
-                      <h3 className="text-2xl font-bold text-gray-900 dark:bg-gradient-to-r dark:from-blue-400 dark:to-purple-400 dark:bg-clip-text dark:text-transparent mb-4">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 items-start">
+                <div className="lg:col-span-2 space-y-6 md:space-y-8">
+                  {/* Connection section with enhanced responsive design */}
+                  <div className="card-modern p-6 md:p-8 group">
+                    <div className="relative space-y-4 md:space-y-6">
+                      <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white dark:group-hover:bg-gradient-to-r dark:group-hover:from-blue-400 dark:group-hover:to-purple-400 dark:group-hover:bg-clip-text dark:group-hover:text-transparent transition-all duration-300">
                         Stay Connected
                       </h3>
-                      <p className="text-gray-600 dark:text-muted-foreground mb-6">
+                      <p className="text-base md:text-lg text-gray-600 dark:text-muted-foreground leading-relaxed">
                         Access real-time updates, collaborate with your team, and stay informed 
                         about the latest company news and announcements.
                       </p>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-6 shadow-soft transition-colors duration-300 group hover:shadow-medium">
-                          <div className="h-12 w-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                            <FileText className="h-6 w-6 text-white" />
+                      
+                      {/* Feature cards with improved mobile layout */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                        <div className="card-modern p-4 md:p-6 group/inner">
+                          <div className="flex items-start space-x-4">
+                            <div className="h-12 w-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center group-hover/inner:scale-105 transition-transform duration-300 flex-shrink-0">
+                              <FileText className="h-6 w-6 text-white" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="font-semibold text-gray-900 dark:text-foreground">Documentation</h4>
+                              <p className="text-sm text-gray-600 dark:text-muted-foreground leading-relaxed">
+                                Access comprehensive guides and procedures
+                              </p>
+                            </div>
                           </div>
-                          <h4 className="font-semibold text-gray-900 dark:text-foreground mb-2">Documentation</h4>
-                          <p className="text-sm text-gray-600 dark:text-muted-foreground">Access comprehensive guides and procedures</p>
                         </div>
-                        <div className="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-6 shadow-soft transition-colors duration-300 group hover:shadow-medium">
-                          <div className="h-12 w-12 bg-gradient-to-br from-pink-500 to-red-500 rounded-xl mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                            <Users className="h-6 w-6 text-white" />
+                        
+                        <div className="card-modern p-4 md:p-6 group/inner">
+                          <div className="flex items-start space-x-4">
+                            <div className="h-12 w-12 bg-gradient-to-br from-pink-500 to-red-500 rounded-xl flex items-center justify-center group-hover/inner:scale-105 transition-transform duration-300 flex-shrink-0">
+                              <Users className="h-6 w-6 text-white" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="font-semibold text-gray-900 dark:text-foreground">Collaboration</h4>
+                              <p className="text-sm text-gray-600 dark:text-muted-foreground leading-relaxed">
+                                Connect with team members instantly
+                              </p>
+                            </div>
                           </div>
-                          <h4 className="font-semibold text-gray-900 dark:text-foreground mb-2">Collaboration</h4>
-                          <p className="text-sm text-gray-600 dark:text-muted-foreground">Connect with team members instantly</p>
                         </div>
                       </div>
                     </div>
