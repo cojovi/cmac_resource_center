@@ -134,24 +134,24 @@ export const SearchBar = () => {
 
       {/* Search Results Dropdown */}
       {showResults && searchResults.length > 0 && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 z-50 max-h-96 overflow-y-auto">
+        <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 z-50 max-h-96 overflow-y-auto">
           {searchResults.map((item) => (
             <div
               key={item.id}
               onClick={() => handleItemClick(item)}
-              className="p-4 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 group"
+              className="p-4 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer border-b border-gray-100 dark:border-gray-600 last:border-b-0 group"
             >
               <div className="flex items-start justify-between">
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
-                    <h3 className="font-semibold text-gray-900 group-hover:text-primary transition-colors">
+                    <h3 className="font-semibold text-gray-900 dark:text-white group-hover:text-primary transition-colors">
                       {item.title}
                     </h3>
                     {item.isExternal && (
                       <ExternalLink className="w-3 h-3 text-gray-400" />
                     )}
                   </div>
-                  <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">{item.description}</p>
                   <span className="text-xs text-primary font-medium bg-primary/10 px-2 py-1 rounded-full mt-2 inline-block">
                     {item.category}
                   </span>
@@ -164,8 +164,8 @@ export const SearchBar = () => {
 
       {/* No Results Message */}
       {showResults && query.trim().length > 0 && searchResults.length === 0 && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 z-50 p-4">
-          <p className="text-gray-600 text-center">
+        <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 z-50 p-4">
+          <p className="text-gray-600 dark:text-gray-300 text-center">
             No resources found. Press Enter to ask AmayAI for help.
           </p>
         </div>

@@ -19,7 +19,17 @@ export const NotificationBanner = () => {
               <p className="font-bold text-lg">IMPORTANT NOTICE</p>
               <div className="text-sm md:text-base space-y-1 md:space-y-0 md:space-x-6 md:flex">
                 <span>🎫 IT requests must now use the IT ticketing system</span>
-                <span>💬 Slack rollout begins next week - participation required</span>
+                <span>
+                  💬 Slack rollout begins next week - participation required{' '}
+                  <a 
+                    href="https://shorturl.at/0liAI" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="font-bold underline hover:text-yellow-200 transition-colors duration-200"
+                  >
+                    CLICK HERE
+                  </a>
+                </span>
               </div>
             </div>
           </div>

@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Search } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { searchableResources } from '@/data/searchData';
 
 interface HeroSectionProps {
   title: string;
@@ -11,17 +13,67 @@ interface HeroSectionProps {
 export const HeroSection = ({ title, subtitle, showSearch = false, onSearch }: HeroSectionProps) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [mounted, setMounted] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const performSearch = (query: string) => {
+    if (!query.trim()) return;
+
+    // Find exact matches first
+    const exactMatches = searchableResources.filter(item => 
+      item.title.toLowerCase() === query.toLowerCase() ||
+      item.description.toLowerCase().includes(query.toLowerCase())
+    );
+
+    // Find partial matches
+    const partialMatches = searchableResources.filter(item =>
+      item.title.toLowerCase().includes(query.toLowerCase()) ||
+      item.description.toLowerCase().includes(query.toLowerCase()) ||
+      item.category.toLowerCase().includes(query.toLowerCase())
+    );
+
+    const allMatches = [...exactMatches, ...partialMatches.filter(item => 
+      !exactMatches.some(exact => exact.id === item.id)
+    )];
+
+    if (allMatches.length > 0) {
+      const firstMatch = allMatches[0];
+      
+      if (firstMatch.isExternal) {
+        window.open(firstMatch.link, '_blank', 'noopener,noreferrer');
+      } else {
+        navigate(firstMatch.link);
+      }
+    } else {
+      // If no matches found, navigate to team directory as a fallback
+      navigate('/team-directory');
+    }
+
     if (onSearch) {
-      onSearch(searchQuery);
+      onSearch(query);
     }
   };
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    performSearch(searchQuery);
+  };
+
+  const handleSuggestionClick = (suggestion: string) => {
+    setSearchQuery(suggestion);
+    performSearch(suggestion);
+  };
+
+  // Map suggestions to actual searchable items
+  const searchSuggestions = [
+    { text: 'Employee Handbook', searchTerm: 'Employee Handbook' },
+    { text: 'Team Directory', searchTerm: 'Team Directory' },
+    { text: 'Safety Protocols', searchTerm: 'Safety' },
+    { text: 'Forms', searchTerm: 'Forms' }
+  ];
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-500">
@@ -92,15 +144,15 @@ export const HeroSection = ({ title, subtitle, showSearch = false, onSearch }: H
             
             {/* Search suggestions */}
             <div className="mt-6 flex flex-wrap justify-center gap-3">
-              {['Employee Handbook', 'Team Directory', 'Safety Protocols', 'Forms'].map((suggestion, index) => (
+              {searchSuggestions.map((suggestion, index) => (
                 <button
-                  key={suggestion}
-                  onClick={() => setSearchQuery(suggestion)}
-                  className={`rounded-full bg-gray-100 dark:bg-gray-800 px-4 py-2 text-sm text-gray-600 dark:text-gray-300 transition-all duration-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-gray-800 dark:hover:text-gray-100 animate-fade-in-up`}
+                  key={suggestion.text}
+                  onClick={() => handleSuggestionClick(suggestion.searchTerm)}
+                  className={`rounded-full bg-gray-100 dark:bg-gray-800 px-4 py-2 text-sm text-gray-600 dark:text-gray-300 transition-all duration-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-gray-800 dark:hover:text-gray-100 hover:scale-105 cursor-pointer animate-fade-in-up`}
                   style={{ animationDelay: `${600 + index * 100}ms` }}
                   data-cursor="hover"
                 >
-                  {suggestion}
+                  {suggestion.text}
                 </button>
               ))}
             </div>
