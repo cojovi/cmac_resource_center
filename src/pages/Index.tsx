@@ -116,67 +116,76 @@ const Index = () => {
               </p>
             </div>
 
-            {/* Main Layout - Resources on left, Slack and Stay Connected on right */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* Left Side - Resource Cards (2 rows of 3) */}
-              <div className="lg:col-span-2">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {resources.map((resource, index) => (
-                    <div key={resource.title} className="h-full">
-                      <ModernResourceCard
-                        {...resource}
-                        delay={index * 100}
-                      />
-                    </div>
-                  ))}
+            {/* Main Layout */}
+            <div className="space-y-8">
+              {/* Top Row: Resource Cards (left) and Slack (right) */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {/* Left Side - Resource Cards (2 rows of 3) */}
+                <div className="lg:col-span-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {resources.map((resource, index) => (
+                      <div key={resource.title} className="h-full">
+                        <ModernResourceCard
+                          {...resource}
+                          delay={index * 100}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Right Side - Slack Component */}
+                <div className="lg:col-span-1">
+                  <div className={`${isVisible ? 'animate-fade-in-up animate-delay-600' : 'opacity-0'}`}>
+                    <SlackRollout />
+                  </div>
                 </div>
               </div>
 
-              {/* Right Side - Slack Component and Stay Connected */}
-              <div className="lg:col-span-1 space-y-8">
-                {/* Slack Component */}
-                <div className={`${isVisible ? 'animate-fade-in-up animate-delay-600' : 'opacity-0'}`}>
-                  <SlackRollout />
-                </div>
-
-                {/* Stay Connected Section - Right below Slack */}
-                <div className={`${isVisible ? 'animate-fade-in-up animate-delay-800' : 'opacity-0'}`}>
-                  <div className="card-modern p-6 md:p-8 group">
-                    <div className="relative space-y-4 md:space-y-6">
-                      <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white dark:group-hover:bg-gradient-to-r dark:group-hover:from-blue-400 dark:group-hover:to-purple-400 dark:group-hover:bg-clip-text dark:group-hover:text-transparent transition-all duration-300">
-                        Stay Connected
-                      </h3>
-                      <p className="text-base md:text-lg text-gray-600 dark:text-muted-foreground leading-relaxed">
-                        Access real-time updates, collaborate with your team, and stay informed 
-                        about the latest company news and announcements.
-                      </p>
-                      
-                      {/* Feature cards with improved mobile layout */}
-                      <div className="grid grid-cols-1 gap-4">
-                        <div className="card-modern p-4 md:p-6 group/inner">
-                          <div className="flex items-start space-x-4">
-                            <div className="h-12 w-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center group-hover/inner:scale-105 transition-transform duration-300 flex-shrink-0">
-                              <FileText className="h-6 w-6 text-white" />
-                            </div>
-                            <div className="space-y-2">
-                              <h4 className="font-semibold text-gray-900 dark:text-foreground">Documentation</h4>
-                              <p className="text-sm text-gray-600 dark:text-muted-foreground leading-relaxed">
-                                Access comprehensive guides and procedures
-                              </p>
+              {/* Bottom Row: Stay Connected Section (below the cards) */}
+              <div className={`${isVisible ? 'animate-fade-in-up animate-delay-800' : 'opacity-0'}`}>
+                <SectionDivider />
+                
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 items-start">
+                  <div className="lg:col-span-2 space-y-6 md:space-y-8">
+                    {/* Stay Connected section with enhanced responsive design */}
+                    <div className="card-modern p-6 md:p-8 group">
+                      <div className="relative space-y-4 md:space-y-6">
+                        <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white dark:group-hover:bg-gradient-to-r dark:group-hover:from-blue-400 dark:group-hover:to-purple-400 dark:group-hover:bg-clip-text dark:group-hover:text-transparent transition-all duration-300">
+                          Stay Connected
+                        </h3>
+                        <p className="text-base md:text-lg text-gray-600 dark:text-muted-foreground leading-relaxed">
+                          Access real-time updates, collaborate with your team, and stay informed 
+                          about the latest company news and announcements.
+                        </p>
+                        
+                        {/* Feature cards with improved mobile layout */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                          <div className="card-modern p-4 md:p-6 group/inner">
+                            <div className="flex items-start space-x-4">
+                              <div className="h-12 w-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center group-hover/inner:scale-105 transition-transform duration-300 flex-shrink-0">
+                                <FileText className="h-6 w-6 text-white" />
+                              </div>
+                              <div className="space-y-2">
+                                <h4 className="font-semibold text-gray-900 dark:text-foreground">Documentation</h4>
+                                <p className="text-sm text-gray-600 dark:text-muted-foreground leading-relaxed">
+                                  Access comprehensive guides and procedures
+                                </p>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        
-                        <div className="card-modern p-4 md:p-6 group/inner">
-                          <div className="flex items-start space-x-4">
-                            <div className="h-12 w-12 bg-gradient-to-br from-pink-500 to-red-500 rounded-xl flex items-center justify-center group-hover/inner:scale-105 transition-transform duration-300 flex-shrink-0">
-                              <Users className="h-6 w-6 text-white" />
-                            </div>
-                            <div className="space-y-2">
-                              <h4 className="font-semibold text-gray-900 dark:text-foreground">Collaboration</h4>
-                              <p className="text-sm text-gray-600 dark:text-muted-foreground leading-relaxed">
-                                Connect with team members instantly
-                              </p>
+                          
+                          <div className="card-modern p-4 md:p-6 group/inner">
+                            <div className="flex items-start space-x-4">
+                              <div className="h-12 w-12 bg-gradient-to-br from-pink-500 to-red-500 rounded-xl flex items-center justify-center group-hover/inner:scale-105 transition-transform duration-300 flex-shrink-0">
+                                <Users className="h-6 w-6 text-white" />
+                              </div>
+                              <div className="space-y-2">
+                                <h4 className="font-semibold text-gray-900 dark:text-foreground">Collaboration</h4>
+                                <p className="text-sm text-gray-600 dark:text-muted-foreground leading-relaxed">
+                                  Connect with team members instantly
+                                </p>
+                              </div>
                             </div>
                           </div>
                         </div>
