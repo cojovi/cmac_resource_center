@@ -116,8 +116,8 @@ const Index = () => {
               </p>
             </div>
 
-            {/* Main Layout - Resources and Slack Side by Side */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12 md:mb-16">
+            {/* Main Layout - Resources on left, Slack and Stay Connected on right */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Left Side - Resource Cards (2 rows of 3) */}
               <div className="lg:col-span-2">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -132,21 +132,14 @@ const Index = () => {
                 </div>
               </div>
 
-              {/* Right Side - Slack Component */}
-              <div className="lg:col-span-1">
+              {/* Right Side - Slack Component and Stay Connected */}
+              <div className="lg:col-span-1 space-y-8">
+                {/* Slack Component */}
                 <div className={`${isVisible ? 'animate-fade-in-up animate-delay-600' : 'opacity-0'}`}>
                   <SlackRollout />
                 </div>
-              </div>
-            </div>
 
-            {/* Stay Connected Section - Positioned below in the space shown in image */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* Empty space on left to align with Slack component */}
-              <div className="lg:col-span-2"></div>
-              
-              {/* Stay Connected - Positioned exactly where shown in the image */}
-              <div className="lg:col-span-1">
+                {/* Stay Connected Section - Right below Slack */}
                 <div className={`${isVisible ? 'animate-fade-in-up animate-delay-800' : 'opacity-0'}`}>
                   <div className="card-modern p-6 md:p-8 group">
                     <div className="relative space-y-4 md:space-y-6">
@@ -159,7 +152,7 @@ const Index = () => {
                       </p>
                       
                       {/* Feature cards with improved mobile layout */}
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                      <div className="grid grid-cols-1 gap-4">
                         <div className="card-modern p-4 md:p-6 group/inner">
                           <div className="flex items-start space-x-4">
                             <div className="h-12 w-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center group-hover/inner:scale-105 transition-transform duration-300 flex-shrink-0">
