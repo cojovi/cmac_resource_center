@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Phone, ChevronLeft } from "lucide-react";
+import { Mail, Phone, ChevronLeft, Building } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -7,10 +7,70 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
+// Department mapping from jenns-updates.txt
+const departmentMapping: { [key: string]: string } = {
+  // Tile Division
+  "Lazaro Castillo": "Tile Division",
+  "Renee Cremean": "Accounting, Purchasing, and Finance",
+  "Evencio Gaona": "Tile Division",
+  "Jonathan Haigwood": "Tile Division",
+  "Pedro Marquez": "Tile Division",
+  "Hugo Sandia": "Tile Division",
+  "Miguel Sandia": "Tile Division",
+  "Christian Sommer": "Tile Division",
+  "Chris Singleton": "Tile Division",
+  
+  // Accounting, Purchasing, and Finance
+  "Robin Garner": "Accounting, Purchasing, and Finance",
+  "Jeninne Glass": "Accounting, Purchasing, and Finance",
+  "Chasity Jones": "Accounting, Purchasing, and Finance",
+  "Dulce Munoz": "Accounting, Purchasing, and Finance",
+  "Faith Mahan": "Accounting, Purchasing, and Finance",
+  "Jeanette Pena": "Accounting, Purchasing, and Finance",
+  
+  // Restoration
+  "Michael August": "Restoration",
+  "Jason Gamez": "Restoration",
+  "Charles Marlow": "Restoration",
+  "Brett Russell": "Restoration",
+  "Michael Serenil": "Restoration",
+  "David Tresemer": "Restoration",
+  
+  // Sheetmetal
+  "Clayton Bradfield": "Sheetmetal",
+  "Jay Narke": "Sheetmetal",
+  "Silvano Rojo": "Sheetmetal",
+  "Ivan Guadiana": "Sheetmetal",
+  "Omar Guadiana": "Sheetmetal",
+  "Abel Salazar": "Sheetmetal",
+  
+  // CMAC Services
+  "Amy Havenor": "CMAC Services",
+  "David Havenor": "CMAC Services",
+  "Billy Nicholson": "CMAC Services",
+  "Scott Reichardt": "CMAC Services",
+  
+  // Austin Division
+  "Jared Hobbs": "Austin Division",
+  "Daniela Rivera": "Austin Division",
+  "Jonni Torres": "Austin Division",
+  "Vivian Torres": "Austin Division",
+  
+  // Doors
+  "Victor Garcia": "Doors",
+  "Mike Porter": "Doors",
+  
+  // Framing
+  "Shane Gresham": "Framing",
+  "Rob Davis": "Framing",
+  
+  // Houston
+  "Spencer Fesmire": "Houston",
+};
+
 const teamResources = [
   { firstName: "Aaron", lastName: "Garcia", email: "aarong@cmacroofing.com", phone: "817-896-65612" },
   { firstName: "Abel", lastName: "Salazar", email: "abels@cmacroofing.com", phone: "214-533-3078" },
-  { firstName: "Admin", lastName: "at CMAC Roofing", email: "admin@cmacroofing.com", phone: "+18177974979" },
   { firstName: "Albert", lastName: "Pecina", email: "albertp@cmacroofing.com", phone: "+18177512041" },
   { firstName: "Alfredo", lastName: "Sandoval", email: "alfredos@cmacroofing.com", phone: "" },
   { firstName: "Allan", lastName: "Aviles", email: "allan@cmacroofing.com", phone: "" },
@@ -19,12 +79,9 @@ const teamResources = [
   { firstName: "Anna", lastName: "Skwierinski", email: "annas@cmacroofing.com", phone: "" },
   { firstName: "Arnold", lastName: "Guevara", email: "arnoldg@cmacroofing.com", phone: "713-446-8223" },
   { firstName: "Ashlee", lastName: "Eaton", email: "ashlee@cmacroofing.com", phone: "2146364118" },
-  { firstName: "austin", lastName: "gutters", email: "austingutters@cmacroofing.com", phone: "" },
   { firstName: "Avery", lastName: "West", email: "averyw@cmacroofing.com", phone: "" },
   { firstName: "Bailey", lastName: "Poe", email: "baileyp@cmacroofing.com", phone: "(806) 576-9710" },
   { firstName: "Billy", lastName: "Nicholson", email: "billyn@cmacroofing.com", phone: "+16788990095" },
-  { firstName: "Billy", lastName: "Collazo", email: "billyc@cmacroofing.com", phone: "+19729899976" },
-  { firstName: "Birthday", lastName: "Buddy", email: "birthdaybuddy@cmacroofing.com", phone: "" },
   { firstName: "Brett", lastName: "Russell", email: "brettr@cmacroofing.com", phone: "+12145297537" },
   { firstName: "Brock", lastName: "Johnston", email: "brock@cmacroofing.com", phone: "" },
   { firstName: "Cassidy", lastName: "Hortman", email: "cassidyh@cmacroofing.com", phone: "" },
@@ -34,12 +91,9 @@ const teamResources = [
   { firstName: "Chris", lastName: "Harrison", email: "chrish@cmacroofing.com", phone: "" },
   { firstName: "Chris", lastName: "Singleton", email: "chriss@cmacroofing.com", phone: "+12148768630" },
   { firstName: "Christian", lastName: "Sommer", email: "csommer@cmacroofing.com", phone: "+12818508678" },
-  { firstName: "Christian", lastName: "Viveiros", email: "christian@cmacroofing.com", phone: "8174717854" },
+  { firstName: "Christian", lastName: "Viveiros", departmentName: "CEO", email: "christian@cmacroofing.com", phone: "8174717854" },
   { firstName: "Clayton", lastName: "Bradfield", email: "claytonb@cmacroofing.com", phone: "214-545-2279" },
-  { firstName: "cmac", lastName: "forge", email: "cmacforge@cmacroofing.com", phone: "" },
-  { firstName: "CMAC-Atx", lastName: "info", email: "atxinfo@cmacroofing.com", phone: "" },
   { firstName: "Cody", lastName: "Viveiros", email: "codyv@cmacroofing.com", phone: "8177512041" },
-  { firstName: "Cody", lastName: "Viveiros", email: "cody@cmacroofing.com", phone: "" },
   { firstName: "Craig", lastName: "Hamilton", email: "acquisition@cmacroofing.com", phone: "928-671-1126" },
   { firstName: "Daniel", lastName: "Lara", email: "daniell@cmacroofing.com", phone: "+18179406899" },
   { firstName: "Daniel", lastName: "Arreola", email: "daniela@cmacroofing.com", phone: "" },
@@ -51,8 +105,6 @@ const teamResources = [
   { firstName: "Eric", lastName: "Francis", email: "ericf@cmacroofing.com", phone: "" },
   { firstName: "Evencio", lastName: "Gaona", email: "evenciog@cmacroofing.com", phone: "+18175250294" },
   { firstName: "Faith", lastName: "Mahan", email: "faith@cmacroofing.com", phone: "+18179629018" },
-  { firstName: "First Texas", lastName: "at CMAC", email: "firsttexaslogin@cmacroofing.com", phone: "" },
-  { firstName: "Giselle", lastName: "Espinosa", email: "Giselle@cmacroofing.com", phone: "+16825545363" },
   { firstName: "Grant", lastName: "Gamez", email: "grantg@cmacroofing.com", phone: "" },
   { firstName: "Hugo", lastName: "Sandia", email: "hugos@cmacroofing.com", phone: "" },
   { firstName: "Hunter", lastName: "Powers", email: "hunterp@cmacroofing.com", phone: "" },
@@ -60,7 +112,7 @@ const teamResources = [
   { firstName: "Italia", lastName: "Mireles", email: "italiam@cmacroofing.com", phone: "817-818-8396" },
   { firstName: "Ivan", lastName: "Guadiana", email: "ivang@cmacroofing.com", phone: "" },
   { firstName: "Ivette", lastName: "Sanchez", email: "ivettes@cmacroofing.com", phone: "(682)336-3848" },
-  { firstName: "Ivis", lastName: "Aviles", email: "ivis@cmacroofing.com", phone: "" },
+  { firstName: "Ivis", lastName: "Aviles", departmentName: "President", email: "ivis@cmacroofing.com", phone: "" },
   { firstName: "Jace", lastName: "Hobbs", email: "jace@cmacroofing.com", phone: "+16825517020" },
   { firstName: "Jared", lastName: "Hobbs", email: "jared@cmacroofing.com", phone: "" },
   { firstName: "Jason", lastName: "Carson", email: "jasonc@cmacroofing.com", phone: "" },
@@ -70,7 +122,7 @@ const teamResources = [
   { firstName: "Jay", lastName: "Narke", email: "jayn@cmacroofing.com", phone: "+12146427739" },
   { firstName: "Jeanette", lastName: "Pena", email: "jeanettep@cmacroofing.com", phone: "940-465-9354" },
   { firstName: "Jeninne", lastName: "Glass", email: "jeninneg@cmacroofing.com", phone: "" },
-  { firstName: "Jenn", lastName: "Ridgeway", email: "jennr@cmacroofing.com", phone: "+14692309547" },
+  { firstName: "Jenn", lastName: "Ridgeway", departmentName: "Director of Business Operations and HR", email: "jennr@cmacroofing.com", phone: "+14692309547" },
   { firstName: "Jeremy", lastName: "Smith", email: "jeremys@cmacroofing.com", phone: "817-614-2199" },
   { firstName: "Jesus", lastName: "Salazar", email: "jesuss@cmacroofing.com", phone: "214-418-7109" },
   { firstName: "Joe", lastName: "Coker", email: "joec@cmacroofing.com", phone: "+18172286924" },
@@ -92,7 +144,6 @@ const teamResources = [
   { firstName: "Larry", lastName: "Cremean", email: "larryc@cmacroofing.com", phone: "" },
   { firstName: "Lazaro", lastName: "Castillo", email: "lazaroc@cmacroofing.com", phone: "" },
   { firstName: "Leo", lastName: "Don", email: "leo@cmacroofing.com", phone: "" },
-  { firstName: "Leticia", lastName: "Escamilla", email: "leticiae@cmacroofing.com", phone: "+19403939157" },
   { firstName: "lily", lastName: "Castillo", email: "lilyc@cmacroofing.com", phone: "972-832-3677" },
   { firstName: "Lucio", lastName: "Medrano", email: "luciom@cmacroofing.com", phone: "972-921-2253" },
   { firstName: "Luis", lastName: "Gutierrez", email: "luisg@cmacroofing.com", phone: "+19452466775" },
@@ -117,8 +168,6 @@ const teamResources = [
   { firstName: "Pedro", lastName: "Marquez", email: "pedrom@cmacroofing.com", phone: "" },
   { firstName: "Perla", lastName: "De La Cruz", email: "perlad@cmacroofing.com", phone: "2149076610" },
   { firstName: "Renee", lastName: "Cremean", email: "renee@cmacroofing.com", phone: "817-296-3139" },
-  { firstName: "Richard", lastName: "Rogers", email: "richr@cmacroofing.com", phone: "" },
-  { firstName: "Rick", lastName: "Carson", email: "rcarson@cmacroofing.com", phone: "" },
   { firstName: "Rob", lastName: "Davis", email: "rob@cmacroofing.com", phone: "+18178884757" },
   { firstName: "Robin", lastName: "Garner", email: "robin@cmacroofing.com", phone: "+18177974979" },
   { firstName: "Sam", lastName: "Acosta", email: "sama@cmacroofing.com", phone: "501-514-7366" },
@@ -133,13 +182,9 @@ const teamResources = [
   { firstName: "Stephanie", lastName: "Ramos", email: "stephanier@cmacroofing.com", phone: "" },
   { firstName: "Steven", lastName: "Ott", email: "steveno@cmacroofing.com", phone: "5129344806" },
   { firstName: "Tavo", lastName: "at CMAC Roofing", email: "tavo@cmacroofing.com", phone: "" },
-  { firstName: "TimothyToshiba", lastName: "toshiba", email: "timothytoshiba@cmacroofing.com", phone: "+18177512041" },
-  { firstName: "Tommy", lastName: "Toshiba", email: "tommytoshiba@cmacroofing.com", phone: "+18177512041" },
-  { firstName: "Traci", lastName: "Moore", email: "tracim@cmacroofing.com", phone: "+19402555310" },
   { firstName: "Valeria", lastName: "Duron", email: "valeriad@cmacroofing.com", phone: "682-583-7349" },
   { firstName: "Victor", lastName: "at CMAC Roofing", email: "victor@cmacroofing.com", phone: "" },
   { firstName: "Victor Jr", lastName: "Garcia", email: "victorjr@cmacroofing.com", phone: "" },
-  { firstName: "Virginia", lastName: "Martinez", email: "virginiam@cmacroofing.com", phone: "" },
   { firstName: "Vivian", lastName: "Torres", email: "vivian@cmacroofing.com", phone: "+18177052676" },
   { firstName: "Wes", lastName: "Shierry", email: "wes@cmacroofing.com", phone: "+1 (817) 501-9807" },
   { firstName: "Yessenia", lastName: "Leiva", email: "yessenial@cmacroofing.com", phone: "9403903855" },
@@ -152,6 +197,17 @@ export default function TeamDirectory() {
     `${member.firstName} ${member.lastName}`.toLowerCase().includes(searchTerm.toLowerCase()) ||
     member.email.toLowerCase().includes(searchTerm.toLowerCase())
   )
+
+  const getDepartment = (member: any) => {
+    // First check if member has a direct departmentName field (one-off)
+    if (member.departmentName) {
+      return member.departmentName;
+    }
+    
+    // Otherwise, use the mapping system
+    const fullName = `${member.firstName} ${member.lastName}`;
+    return departmentMapping[fullName] || "";
+  };
 
   return (
     <main className="min-h-screen bg-background p-6">
@@ -171,30 +227,39 @@ export default function TeamDirectory() {
       />
       <ScrollArea className="h-[calc(100vh-200px)]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {filteredMembers.map((member, index) => (
-            <Card key={index} className="hover:shadow-md transition-shadow">
-              <CardContent className="p-4">
-                <div className="flex items-center space-x-4">
-                  <Avatar className="h-12 w-12">
-                    <AvatarFallback>{member.firstName[0]}{member.lastName[0]}</AvatarFallback>
-                  </Avatar>
-                  <div className="space-y-1">
-                    <h2 className="text-xl font-semibold">{member.firstName} {member.lastName}</h2>
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <Mail className="mr-2 h-4 w-4" />
-                      <a href={`mailto:${member.email}`} className="hover:underline">{member.email}</a>
-                    </div>
-                    {member.phone && (
+          {filteredMembers.map((member, index) => {
+            const department = getDepartment(member);
+            return (
+              <Card key={index} className="hover:shadow-md transition-shadow">
+                <CardContent className="p-4">
+                  <div className="flex items-center space-x-4">
+                    <Avatar className="h-12 w-12">
+                      <AvatarFallback>{member.firstName[0]}{member.lastName[0]}</AvatarFallback>
+                    </Avatar>
+                    <div className="space-y-1">
+                      <h2 className="text-xl font-semibold">{member.firstName} {member.lastName}</h2>
+                      {department && (
+                        <div className="flex items-center text-sm text-muted-foreground">
+                          <Building className="mr-2 h-4 w-4" />
+                          <span>{department}</span>
+                        </div>
+                      )}
                       <div className="flex items-center text-sm text-muted-foreground">
-                        <Phone className="mr-2 h-4 w-4" />
-                        <a href={`tel:${member.phone}`} className="hover:underline">{member.phone}</a>
+                        <Mail className="mr-2 h-4 w-4" />
+                        <a href={`mailto:${member.email}`} className="hover:underline">{member.email}</a>
                       </div>
-                    )}
+                      {member.phone && (
+                        <div className="flex items-center text-sm text-muted-foreground">
+                          <Phone className="mr-2 h-4 w-4" />
+                          <a href={`tel:${member.phone}`} className="hover:underline">{member.phone}</a>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </ScrollArea>
     </main>
