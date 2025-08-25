@@ -17,9 +17,9 @@ export function ThemeToggle() {
       <Button
         variant="ghost"
         size="icon"
-        className="h-9 w-9 rounded-full bg-gray-100/80 backdrop-blur-sm border border-gray-200/50 hover:bg-gray-200/80 transition-all duration-300"
+        className="h-9 w-9 rounded-full bg-gray-100/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 transition-all duration-300"
       >
-        <Moon className="h-4 w-4 text-gray-600" />
+        <div className="h-4 w-4" />
       </Button>
     );
   }
@@ -33,13 +33,13 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="h-9 w-9 rounded-full bg-gray-100/80 backdrop-blur-sm border border-gray-200/50 hover:bg-gray-200/80 transition-all duration-300"
+      className="h-9 w-9 rounded-full bg-gray-100/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 transition-all duration-300"
       data-cursor="hover"
     >
       {theme === "light" ? (
-        <Moon className="h-4 w-4 text-gray-600" />
+        <Moon className="h-4 w-4 text-gray-600 dark:text-gray-300" />
       ) : (
-        <Sun className="h-4 w-4 text-gray-600" />
+        <Sun className="h-4 w-4 text-yellow-500 dark:text-yellow-400" />
       )}
       <span className="sr-only">Toggle theme</span>
     </Button>

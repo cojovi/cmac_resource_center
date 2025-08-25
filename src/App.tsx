@@ -20,9 +20,10 @@ export default () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider 
       attribute="class"
-      defaultTheme="dark"
-      enableSystem={false}
+      defaultTheme="light"
+      enableSystem={true}
       disableTransitionOnChange={false}
+      storageKey="cmac-theme"
     >
       <TooltipProvider>
         <Toaster />
