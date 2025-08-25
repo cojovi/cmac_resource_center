@@ -59,12 +59,12 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen transition-colors duration-300 relative overflow-hidden">
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300 relative overflow-hidden">
       {/* Light Mode: Clean Simple Background */}
-      <div className="dark:hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 min-h-screen" />
+      <div className="dark:hidden fixed inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 -z-20" />
 
       {/* Dark Mode: Enhanced animated background */}
-      <div className="hidden dark:block fixed inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 -z-10">
+      <div className="hidden dark:block fixed inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 -z-20">
         {/* Dynamic gradient overlays with better performance */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.15),transparent_50%)] animate-pulse" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(168,85,247,0.15),transparent_50%)] animate-pulse" style={{ animationDelay: '2s' }} />
@@ -95,12 +95,12 @@ const Index = () => {
       {/* Main Content */}
       <main className="relative z-10">
         {/* Resources Section */}
-        <section className="py-16 md:py-24 px-4 md:px-6 relative">
+        <section className="py-16 md:py-24 px-4 md:px-6 relative bg-transparent">
           {/* Light Mode: Subtle background texture */}
-          <div className="dark:hidden absolute inset-0 bg-gradient-to-b from-white/50 via-gray-50/30 to-white/50" />
+          <div className="dark:hidden absolute inset-0 bg-gradient-to-b from-white/80 via-gray-50/50 to-white/80" />
           
           {/* Dark Mode: Enhanced section background */}
-          <div className="hidden dark:block absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/30 to-transparent" />
+          <div className="hidden dark:block absolute inset-0 bg-gradient-to-b from-gray-900/20 via-gray-800/30 to-gray-900/20" />
           
           <div className="max-w-7xl mx-auto relative">
             {/* Section Header with improved responsive typography */}
@@ -133,9 +133,9 @@ const Index = () => {
 
                 {/* Stay Connected Section - Directly beneath the cards */}
                 <div className={`${isVisible ? 'animate-fade-in-up animate-delay-800' : 'opacity-0'}`}>
-                  <div className="card-modern p-6 md:p-8 group">
+                  <div className="card-modern p-6 md:p-8 group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                     <div className="relative space-y-4 md:space-y-6">
-                      <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white dark:group-hover:bg-gradient-to-r dark:group-hover:from-blue-400 dark:group-hover:to-purple-400 dark:group-hover:bg-clip-text dark:group-hover:text-transparent transition-all duration-300">
+                      <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white transition-all duration-300">
                         Stay Connected
                       </h3>
                       <p className="text-base md:text-lg text-gray-600 dark:text-muted-foreground leading-relaxed">
@@ -145,7 +145,7 @@ const Index = () => {
                       
                       {/* Feature cards with improved mobile layout */}
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                        <div className="card-modern p-4 md:p-6 group/inner">
+                        <div className="card-modern p-4 md:p-6 group/inner bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600">
                           <div className="flex items-start space-x-4">
                             <div className="h-12 w-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center group-hover/inner:scale-105 transition-transform duration-300 flex-shrink-0">
                               <FileText className="h-6 w-6 text-white" />
@@ -159,7 +159,7 @@ const Index = () => {
                           </div>
                         </div>
                         
-                        <div className="card-modern p-4 md:p-6 group/inner">
+                        <div className="card-modern p-4 md:p-6 group/inner bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600">
                           <div className="flex items-start space-x-4">
                             <div className="h-12 w-12 bg-gradient-to-br from-pink-500 to-red-500 rounded-xl flex items-center justify-center group-hover/inner:scale-105 transition-transform duration-300 flex-shrink-0">
                               <Users className="h-6 w-6 text-white" />

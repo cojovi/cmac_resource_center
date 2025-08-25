@@ -37,14 +37,14 @@ export const ModernResourceCard = ({
   
   const CardContent = (
     <div 
-      className={`card-modern group relative h-full p-6 md:p-8 animate-fade-in-up`}
+      className={`card-modern group relative h-full p-6 md:p-8 animate-fade-in-up bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700`}
       style={{ animationDelay: `${delay}ms` }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       data-cursor="hover"
     >
       {/* Enhanced background overlay for theme consistency */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 opacity-0 transition-opacity duration-300 group-hover:opacity-50 dark:group-hover:opacity-30" />
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 opacity-0 transition-opacity duration-300 group-hover:opacity-40 dark:group-hover:opacity-20" />
       
       {/* Icon container with improved responsive design */}
       <div className="relative mb-4 md:mb-6">

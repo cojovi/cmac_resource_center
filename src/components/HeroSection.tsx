@@ -76,7 +76,13 @@ export const HeroSection = ({ title, subtitle, showSearch = false, onSearch }: H
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-500">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-gray-900 transition-colors duration-500">
+      {/* Light mode background */}
+      <div className="dark:hidden absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100" />
+      
+      {/* Dark mode background */}
+      <div className="hidden dark:block absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" />
+      
       {/* Light Mode: Simple decorative elements */}
       <div className="dark:hidden absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-20 h-32 w-32 rounded-full bg-gradient-accent opacity-10 float" />

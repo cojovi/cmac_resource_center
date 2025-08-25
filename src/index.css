@@ -313,14 +313,13 @@
 
   /* RESTORED: Enhanced card hover effects with consistent styling */
   .card-modern {
-    @apply relative overflow-hidden rounded-2xl transition-all duration-500;
-    background: hsl(var(--card));
+    @apply relative overflow-hidden rounded-2xl transition-all duration-500 bg-white dark:bg-gray-800;
     border: 1px solid hsl(var(--border));
     box-shadow: var(--shadow-soft);
   }
 
   .card-modern:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-4px) scale(1.01);
     box-shadow: var(--shadow-hard);
   }
 
@@ -340,11 +339,11 @@
   }
 
   .card-modern:hover::before {
-    opacity: 0.05;
+    opacity: 0.03;
   }
 
   .dark .card-modern:hover::before {
-    opacity: 0.1;
+    opacity: 0.05;
   }
 
   /* Enhanced input styles with better responsiveness */
