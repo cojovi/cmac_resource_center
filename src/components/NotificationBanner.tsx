@@ -1,5 +1,6 @@
 import { AlertTriangle, X } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export const NotificationBanner = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -29,6 +30,13 @@ export const NotificationBanner = () => {
                   >
                     CLICK HERE
                   </a>
+                  {' | '}
+                  <Link 
+                    to="/slack-tutorials"
+                    className="font-bold underline hover:text-yellow-200 transition-colors duration-200"
+                  >
+                    Slack Training Page
+                  </Link>
                 </span>
               </div>
             </div>

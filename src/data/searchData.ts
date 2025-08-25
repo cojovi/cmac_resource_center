@@ -61,6 +61,15 @@ export const searchableResources: SearchableItem[] = [
     category: "Main Resources",
   },
 
+  // Slack Tutorials
+  {
+    id: "slack-tutorials",
+    title: "Slack Tutorials",
+    description: "Comprehensive video tutorials for mastering Slack",
+    link: "/slack-tutorials",
+    category: "Main Resources",
+  },
+
   // CMAC Processes Sub-items
   {
     id: "estimating-checklist",

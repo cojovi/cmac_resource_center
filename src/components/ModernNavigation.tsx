@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Home, Book, Users, FileText, Calendar, Shield } from 'lucide-react';
+import { Home, Book, Users, FileText, Calendar, Shield, MessageSquare } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { ThemeToggle } from '@/components/ThemeToggle';
 
@@ -10,6 +10,7 @@ const navigationItems = [
   { icon: FileText, label: 'Forms', path: '/cmac-forms' },
   { icon: Calendar, label: 'Calendar', path: '/company-calendar' },
   { icon: Shield, label: 'Safety', path: '/cmac-safety' },
+  { icon: MessageSquare, label: 'Slack Tutorials', path: '/slack-tutorials' },
 ];
 
 export const ModernNavigation = () => {

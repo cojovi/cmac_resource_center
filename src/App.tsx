@@ -12,6 +12,7 @@ import CmacSafety from "./pages/CmacSafety";
 import TeamDirectory from "./pages/TeamDirectory";
 import CmacForms from "./pages/CmacForms";
 import CompanyCalendar from "./pages/CompanyCalendar";
+import SlackTutorials from "./pages/SlackTutorials";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ export default () => (
               <Route path="/team-directory" element={<TeamDirectory />} />
               <Route path="/cmac-forms" element={<CmacForms />} />
               <Route path="/company-calendar" element={<CompanyCalendar />} />
+              <Route path="/slack-tutorials" element={<SlackTutorials />} />
             </Routes>
           </HashRouter>
         </div>
