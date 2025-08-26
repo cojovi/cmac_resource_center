@@ -309,4 +309,13 @@ export const searchableResources: SearchableItem[] = [
     category: "Company Calendar",
     isExternal: true,
   },
+
+  // Builder Directory
+  {
+    id: "builder-directory",
+    title: "Builder Directory",
+    description: "Contact information for Lennar builder team members",
+    link: "/builder-directory",
+    category: "Main Resources",
+  },
 ];

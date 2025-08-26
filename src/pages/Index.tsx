@@ -1,4 +1,5 @@
 import { Book, Calendar, FileText, Users, Shield } from "lucide-react";
+import { Building } from "lucide-react";
 import { ModernResourceCard } from "@/components/ModernResourceCard";
 import { SlackRollout } from "@/components/SlackRollout";
 import { ModernTicker } from "@/components/ModernTicker";
@@ -42,6 +43,12 @@ const resources = [
     description: "Safety manuals, protocols, and regulatory compliance",
     icon: Shield,
     link: "/cmac-safety",
+  },
+  {
+    title: "Builder Directory",
+    description: "Connect with Lennar builder team members and contacts",
+    icon: Building,
+    link: "/builder-directory",
   },
 ];
 
