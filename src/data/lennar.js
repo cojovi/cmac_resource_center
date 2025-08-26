@@ -1,0 +1,12 @@
+{ firstName: "Dan", lastName: "Bowen", email: "Dan.Bowen@lennar.com", phone: "(832) 731-3273", title: "VP of Purchasing", company: "Lennar" },
+{ firstName: "David", lastName: "Feuerbacher", email: "David.Feuerbacher@lennar.com", phone: "(817) 822-2392", title: "Senior Purchasing Manager", company: "Lennar" },
+{ firstName: "Ray", lastName: "Kirby", email: "Ray.Kirby@lennar.com", phone: "(214) 457-6189", title: "Senior Purchasing Manager", company: "Lennar" },
+{ firstName: "Ilse", lastName: "Chavez", email: "Ilse.Chavez@lennar.com", phone: "(214) 208-9027", title: "Purchasing Manager", company: "Lennar" },
+{ firstName: "Jared", lastName: "Jackson", email: "Jared.Jackson@lennar.com", phone: "(469) 426-9871", title: "Purchasing Manager", company: "Lennar" },
+{ firstName: "Lisa", lastName: "Pesch", email: "Lisa.Pesch@lennar.com", phone: "(469) 994-1022", title: "Senior Purchasing Agent", company: "Lennar" },
+{ firstName: "Brenda", lastName: "Jordan", email: "Brenda.Jordan@lennar.com", phone: "(469) 394-5063", title: "Purchasing Coordinator", company: "Lennar" },
+{ firstName: "Lucas", lastName: "Llamas", email: "Lucas.Llamas@lennar.com", phone: "(469) 785-4653", title: "Purchasing Coordinator", company: "Lennar" },
+{ firstName: "Grace", lastName: "Kelley", email: "Grace.Kelley@lennar.com", phone: "(469) 435-3883", title: "Purchasing Coordinator", company: "Lennar" },
+{ firstName: "Cedric", lastName: "Muoneke", email: "Cedric.Muoneke@lennar.com", phone: "(469) 212-5178", title: "Purchasing Agent", company: "Lennar" },
+{ firstName: "Henry", lastName: "Rivas", email: "Henry.Rivas@lennar.com", phone: "(945) 230-5451", title: "Purchasing Agent", company: "Lennar" },
+{ firstName: "Jesse", lastName: "Grimes", email: "Jesse.Grimes@lennar.com", phone: "(469) 870-864", title: "Purchasing Agent", company: "Lennar" }
