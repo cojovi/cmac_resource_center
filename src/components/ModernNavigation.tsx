@@ -50,7 +50,7 @@ export const ModernNavigation = () => {
 
   return (
     <nav
-      className={`nav-modern transition-all duration-300 ${topPosition} ${
+      className={`nav-modern transition-all duration-300 shadow-lg dark:shadow-gray-900/50 ${topPosition} ${
         isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       }`}
     >

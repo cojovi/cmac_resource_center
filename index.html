@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,9 +25,13 @@
     <link rel="icon" type="image/png" href="/Apple-Touch-Favicon-removebg-preview.png" />
     <link rel="shortcut icon" type="image/png" href="/Apple-Touch-Favicon-removebg-preview.png" />
     <link rel="apple-touch-icon" href="/Apple-Touch-Favicon-removebg-preview.png" />
+    
+    <!-- Dark Mode Theme Color for Mobile Browsers -->
+    <meta name="theme-color" content="#1f2937" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
   </head>
 
-  <body>
+  <body class="dark:bg-gray-900 transition-colors duration-300">
     <div id="root"></div>
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>

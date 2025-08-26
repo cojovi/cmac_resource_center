@@ -8,7 +8,7 @@ export const NotificationBanner = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="relative overflow-hidden bg-gradient-to-r from-red-500 to-pink-500 text-white animate-fade-in-down z-[60]">
+    <div className="relative overflow-hidden bg-gradient-to-r from-red-500 to-pink-500 dark:from-red-600 dark:to-pink-600 text-white animate-fade-in-down z-[60]">
       <div className="absolute inset-0 bg-black opacity-10" />
       <div className="relative px-6 py-4">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
@@ -26,14 +26,14 @@ export const NotificationBanner = () => {
                     href="https://shorturl.at/0liAI" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="font-bold underline hover:text-yellow-200 transition-colors duration-200"
+                    className="font-bold underline hover:text-yellow-200 dark:hover:text-yellow-300 transition-colors duration-200"
                   >
                     CLICK HERE
                   </a>
                   {' | '}
                   <Link 
                     to="/slack-tutorials"
-                    className="font-bold underline hover:text-yellow-200 transition-colors duration-200"
+                    className="font-bold underline hover:text-yellow-200 dark:hover:text-yellow-300 transition-colors duration-200"
                   >
                     Slack Training Page
                   </Link>
@@ -43,7 +43,7 @@ export const NotificationBanner = () => {
           </div>
           <button
             onClick={() => setIsVisible(false)}
-            className="flex-shrink-0 rounded-full p-2 hover:bg-white/20 transition-colors duration-200"
+            className="flex-shrink-0 rounded-full p-2 hover:bg-white/20 dark:hover:bg-white/30 transition-colors duration-200"
             data-cursor="hover"
           >
             <X className="h-5 w-5" />

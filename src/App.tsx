@@ -21,7 +21,7 @@ export default () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider 
       attribute="class"
-      defaultTheme="light"
+      defaultTheme="dark"
       enableSystem={true}
       disableTransitionOnChange={false}
       storageKey="cmac-theme"
