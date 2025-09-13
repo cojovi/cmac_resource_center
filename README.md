@@ -1,69 +1,85 @@
-# Welcome to your Lovable project
+# Welcome to the CMAC Resource Center Project 🎉
+_Coded (and caffeinated) by **cojovi** and **alinacode**._
 
-## Project info
+---
 
-**URL**: https://lovable.dev/projects/44bdcb1d-8697-478a-995e-8a881d6bb993
+## Project Info
+**Repo URL:** `https://github.com/cojovi/cmac_resource_center`  
+**Live URL (optional):** `team.cmacroofing.com`
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## How Can I Edit This Code?
 
-**Use Lovable**
+### 🖥️ Use Your Preferred IDE
+You know the drill: clone → code → push.  
+Requires Node.js & npm — easiest path is nvm:  
+https://github.com/nvm-sh/nvm#installing-and-updating
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/44bdcb1d-8697-478a-995e-8a881d6bb993) and start prompting.
+**Setup steps:**
+    
+    # 1) Clone the repository
+    git clone <YOUR_GIT_URL>
+    
+    # 2) Enter the project directory
+    cd <YOUR_PROJECT_NAME>
+    
+    # 3) Install dependencies
+    npm i
+    
+    # 4) Start the dev server (hot reload included)
+    npm run dev
 
-Changes made via Lovable will be committed automatically to this repo.
+### ✏️ Edit Directly on GitHub
+- Open the file you want.
+- Click the pencil icon.
+- Make your edits.
+- Commit like a responsible adult.
 
-**Use your preferred IDE**
+### 💻 GitHub Codespaces
+- Click **Code** → **Codespaces** → **New codespace**.
+- Edit in-browser, then commit & push. Magic without the setup pain.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## What’s Under the Hood?
+- **Vite** ⚡
+- **TypeScript** 📘
+- **React** ⚛️
+- **shadcn-ui** ✨
+- **Tailwind CSS** 🌊
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## Deployment Decision 
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Vercel (Also Fancy)
+- **New Project** → Import your repo
+- Framework preset: **Vite**
+- Build command: `npm run build`
+- Output: `dist/`
+- Deploy. Brag.
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Manual (If You Like Control)
+    
+    # Build for production
+    npm run build
+    
+    # Serve the dist/ folder with any static host or container
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+---
 
-**Edit a file directly in GitHub**
+## Custom Domains
+Yes, obviously. Point your DNS and go:
+- team.cmacroofing.com
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## Troubleshooting (Because Computers)
+- Node too old? Use `nvm install --lts && nvm use --lts`.
+- Blank page in prod? Check your `base` in `vite.config.ts` and your host’s output dir.
+- Styles weird? Confirm Tailwind is included and `content` paths are correct.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/44bdcb1d-8697-478a-995e-8a881d6bb993) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+Made with 🧠 + ☕ by **cojovi** and **alinacode**. If it breaks, we were never here.
