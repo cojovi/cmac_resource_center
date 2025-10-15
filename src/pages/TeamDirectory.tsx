@@ -134,6 +134,7 @@ const calendarMapping: { [key: string]: string } = {
   "vivian@cmacroofing.com": "https://calendar.google.com/calendar/embed?src=vivian%40cmacroofing.com",
   "wes@cmacroofing.com": "https://calendar.google.com/calendar/embed?src=wes%40cmacroofing.com",
   "yessenial@cmacroofing.com": "https://calendar.google.com/calendar/embed?src=yessenial%40cmacroofing.com",
+  "teresac@cmacroofing.com": "https://calendar.google.com/calendar/embed?src=teresac%40cmacroofing.com",
 };
 
 // Department mapping from jenns-updates.txt
@@ -195,6 +196,9 @@ const departmentMapping: { [key: string]: string } = {
   
   // Houston
   "Spencer Fesmire": "Houston",
+  
+  // Bolt
+  "Teresa Calvillo": "Bolt",
 };
 
 const teamResources = [
@@ -331,6 +335,7 @@ const teamResources = [
   { firstName: "Kristy", lastName: "Transou", email: "kristyt@cmacroofing.com", phone: "" },
   { firstName: "Michael", lastName: "Hanham", email: "michaelh@cmacroofing.com", phone: "" },
   { firstName: "Valerie", lastName: "Balderrama", email: "valerieb@cmacroofing.com", phone: "" },
+  { firstName: "Teresa", lastName: "Calvillo", email: "teresac@cmacroofing.com", phone: "(714) 349-2056" },
 ];
 
 export default function TeamDirectory() {
