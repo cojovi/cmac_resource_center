@@ -50,6 +50,12 @@ const formResources = [
     icon: FileText,
     link: "https://forms.google.com/timeoff",
   },
+  {
+    title: "CTX Material Shorts Form",
+    description: "Request material shorts for your project",
+    icon: FileText,
+    link: "https://forms.gle/LWpVh4dPbiTGXWUg7",
+  },
 ];
 
 const CmacForms = () => {
