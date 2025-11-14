@@ -255,7 +255,7 @@ const teamResources = [
   { firstName: "Jay", lastName: "Narke", email: "jayn@cmacroofing.com", phone: "+12146427739" },
   { firstName: "Jeanette", lastName: "Pena", email: "jeanettep@cmacroofing.com", phone: "940-465-9354" },
   { firstName: "Jeninne", lastName: "Glass", email: "jeninneg@cmacroofing.com", phone: "" },
-  { firstName: "Jenn", lastName: "Ridgeway", departmentName: "Director of Business Operations and HR", email: "jennr@cmacroofing.com", phone: "+14692309547" },
+  { firstName: "Jenn", lastName: "Ridgeway", departmentName: "Director of Business Operations and HR", email: "jennr@cmacroofing.com", phone: "+19726260417" },
   { firstName: "Jeremy", lastName: "Smith", email: "jeremys@cmacroofing.com", phone: "817-614-2199" },
   { firstName: "Jesus", lastName: "Salazar", email: "jesuss@cmacroofing.com", phone: "214-418-7109" },
   { firstName: "Joe", lastName: "Coker", email: "joec@cmacroofing.com", phone: "+18172286924" },
