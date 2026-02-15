@@ -316,6 +316,58 @@
     left: 100%;
   }
 
+  /* CTA Tools Button with animated gradient and glow */
+  .cta-tools-button {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite, glow-pulse 2s ease-in-out infinite;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(139, 92, 246, 0.3);
+  }
+
+  .cta-tools-button::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
+    background-size: 400% 400%;
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: border-sweep 3s linear infinite;
+  }
+
+  .cta-tools-button:hover::before {
+    opacity: 0.8;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(139, 92, 246, 0.3);
+    }
+    50% {
+      box-shadow: 0 4px 30px rgba(59, 130, 246, 0.6), 0 0 60px rgba(139, 92, 246, 0.5), 0 0 80px rgba(236, 72, 153, 0.3);
+    }
+  }
+
+  @keyframes border-sweep {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 400% 50%;
+    }
+  }
+
   /* RESTORED: Enhanced card hover effects with consistent styling */
   .card-modern {
     @apply relative overflow-hidden rounded-2xl transition-all duration-500 bg-white dark:bg-gray-800;
@@ -463,18 +515,43 @@
   }
 }
 
+/* Tool Card Styles */
+.tool-card {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.tool-card:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.dark .tool-card {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.dark .tool-card:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   .card-modern,
   .btn-modern,
+  .cta-tools-button,
+  .tool-card,
   .animate-fade-in-up,
   .animate-fade-in-down,
   .float {
-    animation: none;
-    transition: none;
+    animation: none !important;
+    transition: none !important;
   }
-  
-  .card-modern:hover {
-    transform: none;
+
+  .card-modern:hover,
+  .tool-card:hover {
+    transform: none !important;
+  }
+
+  .cta-tools-button {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
   }
 }
