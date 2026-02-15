@@ -145,7 +145,7 @@ const CmacTools = () => {
           <div className="mt-16 text-center animate-fade-in-up animate-delay-400">
             <div className="inline-block px-8 py-4 bg-blue-50 dark:bg-blue-900/20 rounded-2xl border border-blue-200 dark:border-blue-800">
               <p className="text-gray-700 dark:text-gray-300">
-                <span className="font-semibold">Need help?</span> Contact your team lead for guidance on using these tools effectively.
+                <span className="font-semibold">Need help?</span> Contact Cody for guidance on using these tools effectively.
               </p>
             </div>
           </div>
