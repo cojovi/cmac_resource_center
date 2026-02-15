@@ -107,26 +107,6 @@ export const HeroSection = ({ title, subtitle, showSearch = false, onSearch }: H
       </div>
 
       <div className="relative z-10 w-full max-w-6xl px-6 text-center">
-        {/* CTA Button - Desktop: Top Right, Mobile: Below Headline */}
-        <div className={`absolute -top-12 right-0 md:top-0 md:right-4 lg:top-4 lg:right-8 hidden md:block z-50 ${mounted ? 'animate-fade-in-up animate-delay-300' : 'opacity-0'}`}>
-          <button
-            onClick={() => navigate('/cmac-tools')}
-            className="cta-tools-button group relative px-7 py-4 lg:px-9 lg:py-5 font-bold text-white rounded-2xl overflow-hidden transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-blue-500/50 shadow-2xl"
-            data-cursor="hover"
-            aria-label="Navigate to CMAC Tools"
-          >
-            <span className="relative z-10 flex items-center gap-2.5 text-base lg:text-xl">
-              <svg className="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z" />
-              </svg>
-              CMAC Tools
-              <svg className="w-4 h-4 lg:w-5 lg:h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </span>
-          </button>
-        </div>
-
         {/* Main heading */}
         <div className="mb-8 space-y-6">
           <h1 className={`text-6xl md:text-8xl font-bold leading-tight transition-colors duration-500 ${mounted ? 'animate-fade-in-up' : 'opacity-0'}`}>
@@ -137,26 +117,6 @@ export const HeroSection = ({ title, subtitle, showSearch = false, onSearch }: H
           <p className={`text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed transition-colors duration-500 ${mounted ? 'animate-fade-in-up animate-delay-200' : 'opacity-0'}`}>
             {subtitle}
           </p>
-
-          {/* CTA Button - Mobile: Below Headline */}
-          <div className={`md:hidden flex justify-center mt-6 ${mounted ? 'animate-fade-in-up animate-delay-300' : 'opacity-0'}`}>
-            <button
-              onClick={() => navigate('/cmac-tools')}
-              className="cta-tools-button group relative px-8 py-5 font-bold text-white rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500/50 shadow-2xl"
-              data-cursor="hover"
-              aria-label="Navigate to CMAC Tools"
-            >
-              <span className="relative z-10 flex items-center gap-2.5 text-lg">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z" />
-                </svg>
-                CMAC Tools
-                <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </span>
-            </button>
-          </div>
         </div>
 
         {/* Search section */}
