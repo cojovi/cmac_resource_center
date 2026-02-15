@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Home, Book, Users, FileText, Calendar, Shield, MessageSquare } from 'lucide-react';
+import { Home, Book, Users, FileText, Calendar, Shield, MessageSquare, Wrench } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { ThemeToggle } from '@/components/ThemeToggle';
 
 const navigationItems = [
   { icon: Home, label: 'Home', path: '/' },
+  { icon: Wrench, label: 'Tools', path: '/cmac-tools' },
   { icon: Book, label: 'Processes', path: '/cmac-processes' },
   { icon: Users, label: 'Team', path: '/team-directory' },
   { icon: FileText, label: 'Forms', path: '/cmac-forms' },
