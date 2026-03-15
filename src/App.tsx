@@ -62,6 +62,7 @@ const AppContent = () => {
         <Route path="/team-directory" element={<TeamDirectory />} />
         <Route path="/cmac-forms" element={<CmacForms />} />
         <Route path="/company-calendar" element={<CompanyCalendar />} />
+        <Route path="/video-tutorials" element={<SlackTutorials />} />
         <Route path="/slack-tutorials" element={<SlackTutorials />} />
         <Route path="/builder-directory" element={<BuilderDirectory />} />
         <Route path="/cmac-tools" element={<CmacTools />} />
