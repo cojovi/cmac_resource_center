@@ -135,5 +135,20 @@ export const teamDirectoryEmployeeRows: TeamDirectoryEmployeeRow[] = [
   { division: "Services", name: "Daren Shepherd", phoneDisplay: "(479) 856-3694" },
   { division: "Mitigation", name: "Jason Gamez", phoneDisplay: "(903) 229-2624" },
   { division: "Mitigation", name: "Jeff Stoval", phoneDisplay: "(972) 880-7280" },
+  {
+    division: "Bolt - Services",
+    name: "Mirtha Rodriguez",
+    jobTitle: "Accounting Services Rep",
+    email: "mirtharodriguez@cmacroofing.com",
+    phoneDisplay: "(408) 480-9727",
+    phoneDigits: "14084809727",
+  },
+  {
+    division: "CMAC Services",
+    name: "Carner Rury",
+    email: "carnerrury@cmacroofing.com",
+    phoneDisplay: "(615) 347-1866",
+    phoneDigits: "16153471866",
+  },
 ];
 

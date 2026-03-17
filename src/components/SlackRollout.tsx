@@ -35,9 +35,11 @@ export const SlackRollout = () => {
       possiblePostNodes.forEach((node) => {
         const text = (node.textContent || "").toLowerCase();
         const includesRequiredTag = text.includes(REQUIRED_HASHTAG);
-        node.style.display = includesRequiredTag ? "" : "none";
         if (includesRequiredTag) {
+          node.style.setProperty("display", "block", "important");
           matches += 1;
+        } else {
+          node.style.setProperty("display", "none", "important");
         }
       });
 

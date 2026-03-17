@@ -197,3 +197,7 @@ This app is a **static SPA**:
   - Audit third-party scripts (supply-chain, privacy, CSP).
 - **Documentation maintenance**: this `CURSOR.md` is intended to be the living “Cursor onboarding brief” for this repo—update it when you add CI, tests, env config, or a backend.
 
+## Change log
+
+- 2026-03-16: Added Team Directory entries for **Mirtha Rodriguez** (Bolt - Services) and **Carner Rury** (CMAC Services) in `src/data/teamDirectoryEmployees.ts`.
+
