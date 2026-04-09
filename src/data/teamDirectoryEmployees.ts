@@ -78,7 +78,7 @@ export const teamDirectoryEmployeeRows: TeamDirectoryEmployeeRow[] = [
     phoneDisplay: "(817) 940-6899",
     phoneDigits: "18179406899",
   },
-  { division: "CMAC DFW", name: "Monica Lopez", jobTitle: "Account Services Representative - Lead", phoneDisplay: "(830) 282-5366" },
+  { division: "CMAC DFW", name: "Monica Lopez", jobTitle: "Account Services Representative - Lead", phoneDisplay: "(817) 940-0034" },
   { division: "CMAC DFW", name: "Italia Mireles", jobTitle: "Account Services Representative", phoneDisplay: "(817) 818-8396", phoneDigits: "18178188396" },
   { division: "CMAC DFW", name: "Ivette Sanchez Lopez", jobTitle: "Account Services Representative", phoneDisplay: "(682) 336-3848" },
   { division: "CMAC DFW", name: "Wes Shierry", jobTitle: "Mini Homes Division", email: "wes@cmacroofing.com", phoneDisplay: "(817) 501-9807", phoneDigits: "18175019807" },
