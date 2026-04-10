@@ -140,7 +140,7 @@ export const teamDirectoryEmployeeRows: TeamDirectoryEmployeeRow[] = [
     name: "Mirtha Rodriguez",
     jobTitle: "Accounting Services Rep",
     email: "mirtharodriguez@cmacroofing.com",
-    phoneDisplay: "(408) 480-9727",
+    phoneDisplay: "(817) 751-3389",
     phoneDigits: "14084809727",
   },
   {
