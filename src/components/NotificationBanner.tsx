@@ -19,25 +19,20 @@ export const NotificationBanner = () => {
             <div className="flex flex-col md:flex-row md:items-center md:space-x-6 space-y-1 md:space-y-0">
               <p className="font-bold text-lg">IMPORTANT NOTICE</p>
               <div className="text-sm md:text-base space-y-1 md:space-y-0 md:space-x-6 md:flex">
-                <span>🎫 IT requests must now use the IT ticketing system</span>
-                <span>
-                  💬 Slack rollout begins next week - participation required{' '}
-                  <a 
-                    href="https://shorturl.at/0liAI" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="font-bold underline hover:text-yellow-200 dark:hover:text-yellow-300 transition-colors duration-200"
-                  >
-                    CLICK HERE
-                  </a>
-                  {' | '}
-                  <Link 
-                    to="/slack-tutorials"
-                    className="font-bold underline hover:text-yellow-200 dark:hover:text-yellow-300 transition-colors duration-200"
-                  >
-                    Slack Training Page
-                  </Link>
-                </span>
+                <a
+                  href="https://cmac-roofing.slack.com/archives/C092N01CES2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold underline hover:text-yellow-200 dark:hover:text-yellow-300 transition-colors duration-200"
+                >
+                  🎫 IT requests must now use the IT ticketing system
+                </a>
+                <Link
+                  to="/video-tutorials"
+                  className="font-bold underline hover:text-yellow-200 dark:hover:text-yellow-300 transition-colors duration-200"
+                >
+                  💬 Slack Training Page
+                </Link>
               </div>
             </div>
           </div>

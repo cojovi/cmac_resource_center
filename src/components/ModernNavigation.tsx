@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react';
-import { Home, Book, Users, FileText, Calendar, Shield, MessageSquare } from 'lucide-react';
+import { Home, Book, Users, FileText, Calendar, Shield, MessageSquare, Wrench } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { ThemeToggle } from '@/components/ThemeToggle';
 
 const navigationItems = [
   { icon: Home, label: 'Home', path: '/' },
+  { icon: Wrench, label: 'Tools', path: '/cmac-tools' },
   { icon: Book, label: 'Processes', path: '/cmac-processes' },
   { icon: Users, label: 'Team', path: '/team-directory' },
   { icon: FileText, label: 'Forms', path: '/cmac-forms' },
   { icon: Calendar, label: 'Calendar', path: '/company-calendar' },
   { icon: Shield, label: 'Safety', path: '/cmac-safety' },
-  { icon: MessageSquare, label: 'Slack Tutorials', path: '/slack-tutorials' },
+  { icon: MessageSquare, label: 'Video Tutorials', path: '/video-tutorials' },
 ];
 
 export const ModernNavigation = () => {
@@ -20,7 +21,6 @@ export const ModernNavigation = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Check if notification banner exists
     const banner = document.querySelector('[data-notification-banner]');
     setHasNotificationBanner(!!banner);
   }, []);
@@ -45,7 +45,6 @@ export const ModernNavigation = () => {
     }
   }, [lastScrollY]);
 
-  // Adjust top position based on notification banner presence
   const topPosition = hasNotificationBanner ? 'top-20' : 'top-6';
 
   return (
@@ -55,12 +54,11 @@ export const ModernNavigation = () => {
       }`}
     >
       <div className="flex items-center justify-between space-x-1">
-        {/* Navigation Items - Keep Original Styling */}
         <div className="flex items-center space-x-1">
           {navigationItems.map((item) => {
             const Icon = item.icon;
-            const isActive = location.pathname === item.path;
-            
+            const isActive = location.pathname === item.path || (item.path === '/video-tutorials' && location.pathname === '/slack-tutorials');
+
             return (
               <Link
                 key={item.path}
@@ -79,8 +77,7 @@ export const ModernNavigation = () => {
             );
           })}
         </div>
-        
-        {/* Theme Toggle - Positioned to the right */}
+
         <div className="ml-4">
           <ThemeToggle />
         </div>

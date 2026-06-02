@@ -61,12 +61,12 @@ export const searchableResources: SearchableItem[] = [
     category: "Main Resources",
   },
 
-  // Slack Tutorials
+  // Video Tutorials
   {
-    id: "slack-tutorials",
-    title: "Slack Tutorials",
-    description: "Comprehensive video tutorials for mastering Slack",
-    link: "/slack-tutorials",
+    id: "video-tutorials",
+    title: "Video Tutorials",
+    description: "Video tutorials for key CMAC workflows and training",
+    link: "/video-tutorials",
     category: "Main Resources",
   },
 

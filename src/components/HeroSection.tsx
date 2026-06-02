@@ -113,7 +113,7 @@ export const HeroSection = ({ title, subtitle, showSearch = false, onSearch }: H
             <span className="block text-gray-900 dark:text-white">Welcome to</span>
             <span className="block gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">{title}</span>
           </h1>
-          
+
           <p className={`text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed transition-colors duration-500 ${mounted ? 'animate-fade-in-up animate-delay-200' : 'opacity-0'}`}>
             {subtitle}
           </p>
