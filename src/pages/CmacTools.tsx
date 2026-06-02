@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowLeft, ExternalLink, Copy, Check } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Copy, Check, Sparkles, Package } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 interface Tool {
@@ -8,7 +8,19 @@ interface Tool {
   url: string;
   description: string;
   gradient: string;
+  /** Short hostname shown for easy recall (e.g. materials.cmacroofing.com) */
+  displayUrl?: string;
 }
+
+const featuredTool: Tool = {
+  id: 'material-tracker',
+  name: 'CMAC Material Tracker',
+  url: 'https://materials.cmacroofing.com/',
+  displayUrl: 'materials.cmacroofing.com',
+  description:
+    "CMAC's proprietary software for ensuring our pricing is always TO-THE-MINUTE accurate, and we never make pricing errors!",
+  gradient: 'from-amber-400 via-orange-500 to-rose-600',
+};
 
 const tools: Tool[] = [
   {
@@ -78,6 +90,125 @@ const CmacTools = () => {
               Internal tools to help you sell smarter and move faster.
             </p>
           </div>
+
+          {/* Featured Tool — Material Tracker */}
+          <section className="max-w-5xl mx-auto mb-14 animate-fade-in-up">
+            <a
+              href={featuredTool.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="featured-tool-card group relative block rounded-3xl overflow-hidden border-2 border-amber-400/60 dark:border-amber-500/50 bg-white dark:bg-gray-800 shadow-[0_0_40px_rgba(251,191,36,0.25)] dark:shadow-[0_0_50px_rgba(251,191,36,0.15)] transition-all duration-500 hover:scale-[1.01] hover:shadow-[0_0_60px_rgba(251,146,60,0.35)] focus:outline-none focus:ring-4 focus:ring-amber-500/50"
+              aria-label={`Open ${featuredTool.name} at ${featuredTool.displayUrl}`}
+            >
+              <div className={`h-3 bg-gradient-to-r ${featuredTool.gradient}`} />
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${featuredTool.gradient} opacity-[0.07] group-hover:opacity-[0.12] transition-opacity duration-500 pointer-events-none`}
+              />
+              <div className="relative p-8 md:p-10 lg:p-12 space-y-6">
+                <div className="flex flex-wrap items-center gap-3">
+                  <span
+                    className={`inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white rounded-full bg-gradient-to-r ${featuredTool.gradient} shadow-lg`}
+                  >
+                    <Sparkles className="w-3.5 h-3.5" />
+                    Primary Tool
+                  </span>
+                  <span className="text-sm font-medium text-amber-700 dark:text-amber-300">
+                    Use this first for all material pricing
+                  </span>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div
+                    className={`flex-shrink-0 p-4 rounded-2xl bg-gradient-to-br ${featuredTool.gradient} text-white shadow-xl`}
+                  >
+                    <Package className="w-10 h-10 md:w-12 md:h-12" />
+                  </div>
+                  <div className="space-y-3 min-w-0">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight">
+                      {featuredTool.name}
+                    </h2>
+                    <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl">
+                      {featuredTool.description}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2 border-t border-amber-200/80 dark:border-amber-800/60">
+                  <div className="space-y-1">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                      Bookmark this URL
+                    </p>
+                    <p className="font-mono text-xl md:text-2xl font-bold text-amber-700 dark:text-amber-300 group-hover:text-orange-600 dark:group-hover:text-amber-200 transition-colors">
+                      {featuredTool.displayUrl}
+                    </p>
+                  </div>
+                  <span
+                    className={`inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold text-white rounded-2xl bg-gradient-to-r ${featuredTool.gradient} shadow-lg group-hover:shadow-xl group-hover:scale-[1.03] transition-all duration-300`}
+                  >
+                    <ExternalLink className="w-5 h-5" />
+                    Open Material Tracker
+                  </span>
+                </div>
+              </div>
+            </a>
+
+            <div className="flex flex-wrap justify-center gap-3 mt-4">
+              <button
+                type="button"
+                onClick={() => handleOpenTool(featuredTool.url)}
+                className={`flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white rounded-xl bg-gradient-to-r ${featuredTool.gradient} hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-amber-500/50`}
+              >
+                <ExternalLink className="w-4 h-4" />
+                Open in new tab
+              </button>
+              <button
+                type="button"
+                onClick={() => handleCopyLink(featuredTool)}
+                className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-gray-500/50"
+              >
+                {copiedId === featuredTool.id ? (
+                  <>
+                    <Check className="w-4 h-4 text-green-500" />
+                    Copied!
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-4 h-4" />
+                    Copy link
+                  </>
+                )}
+              </button>
+              <button
+                type="button"
+                onClick={async () => {
+                  try {
+                    await navigator.clipboard.writeText(featuredTool.displayUrl ?? featuredTool.url);
+                    setCopiedId(`${featuredTool.id}-url`);
+                    setTimeout(() => setCopiedId(null), 2000);
+                  } catch (err) {
+                    console.error('Failed to copy:', err);
+                  }
+                }}
+                className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-amber-800 dark:text-amber-200 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 rounded-xl hover:bg-amber-100 dark:hover:bg-amber-900/40 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-amber-500/50"
+              >
+                {copiedId === `${featuredTool.id}-url` ? (
+                  <>
+                    <Check className="w-4 h-4 text-green-500" />
+                    URL copied!
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-4 h-4" />
+                    Copy {featuredTool.displayUrl}
+                  </>
+                )}
+              </button>
+            </div>
+          </section>
+
+          <h2 className="text-center text-2xl font-semibold text-gray-500 dark:text-gray-400 mb-8 max-w-5xl mx-auto">
+            More CMAC Tools
+          </h2>
 
           {/* Tools Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">

@@ -553,12 +553,29 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
 
+.featured-tool-card {
+  box-shadow: 0 8px 40px rgba(251, 146, 60, 0.2);
+}
+
+.featured-tool-card:hover {
+  box-shadow: 0 12px 56px rgba(251, 146, 60, 0.35);
+}
+
+.dark .featured-tool-card {
+  box-shadow: 0 8px 40px rgba(251, 191, 36, 0.12);
+}
+
+.dark .featured-tool-card:hover {
+  box-shadow: 0 12px 56px rgba(251, 191, 36, 0.22);
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   .card-modern,
   .btn-modern,
   .cta-tools-button,
   .tool-card,
+  .featured-tool-card,
   .animate-fade-in-up,
   .animate-fade-in-down,
   .float {
@@ -567,7 +584,8 @@
   }
 
   .card-modern:hover,
-  .tool-card:hover {
+  .tool-card:hover,
+  .featured-tool-card:hover {
     transform: none !important;
   }
 
