@@ -93,12 +93,8 @@ const CmacTools = () => {
 
           {/* Featured Tool — Material Tracker */}
           <section className="max-w-5xl mx-auto mb-14 animate-fade-in-up">
-            <a
-              href={featuredTool.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="featured-tool-card group relative block rounded-3xl overflow-hidden border-2 border-amber-400/60 dark:border-amber-500/50 bg-white dark:bg-gray-800 shadow-[0_0_40px_rgba(251,191,36,0.25)] dark:shadow-[0_0_50px_rgba(251,191,36,0.15)] transition-all duration-500 hover:scale-[1.01] hover:shadow-[0_0_60px_rgba(251,146,60,0.35)] focus:outline-none focus:ring-4 focus:ring-amber-500/50"
-              aria-label={`Open ${featuredTool.name} at ${featuredTool.displayUrl}`}
+            <div
+              className="featured-tool-card group relative block rounded-3xl overflow-hidden border-2 border-amber-400/60 dark:border-amber-500/50 bg-white dark:bg-gray-800 shadow-[0_0_40px_rgba(251,191,36,0.25)] dark:shadow-[0_0_50px_rgba(251,191,36,0.15)] transition-all duration-500 hover:scale-[1.01] hover:shadow-[0_0_60px_rgba(251,146,60,0.35)]"
             >
               <div className={`h-3 bg-gradient-to-r ${featuredTool.gradient}`} />
               <div
@@ -142,15 +138,18 @@ const CmacTools = () => {
                       {featuredTool.displayUrl}
                     </p>
                   </div>
-                  <span
-                    className={`inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold text-white rounded-2xl bg-gradient-to-r ${featuredTool.gradient} shadow-lg group-hover:shadow-xl group-hover:scale-[1.03] transition-all duration-300`}
+                  <button
+                    type="button"
+                    onClick={() => handleOpenTool(featuredTool.url)}
+                    className={`inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold text-white rounded-2xl bg-gradient-to-r ${featuredTool.gradient} shadow-lg hover:shadow-xl hover:scale-[1.03] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-amber-500/50`}
+                    aria-label={`Open ${featuredTool.name}`}
                   >
                     <ExternalLink className="w-5 h-5" />
                     Open Material Tracker
-                  </span>
+                  </button>
                 </div>
               </div>
-            </a>
+            </div>
 
             <div className="flex flex-wrap justify-center gap-3 mt-4">
               <button
